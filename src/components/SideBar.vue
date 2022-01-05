@@ -49,10 +49,16 @@
                 </li>
                 <li class="nav-item">
                     <router-link
-                        to="/profile"
+                        to="/file-uploading"
                         class="nav-link"
                         active-class="active"
                     >
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>File Uploading</p>
+                    </router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/profile"  class="nav-link" active-class="active">
                         <i class="nav-icon fas fa-user"></i>
                         <p>Profile</p>
                     </router-link>
