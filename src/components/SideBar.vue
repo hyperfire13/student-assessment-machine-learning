@@ -22,10 +22,9 @@
                 />
             </div>
             <div class="info">
-                <router-link to="/profile" class="d-block">
-                    {{user && user.email}}
+                <a href="#">
                     Kenneth pogi
-                </router-link>
+                </a>
             </div>
         </div>
 
@@ -58,10 +57,7 @@
                     </router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/profile"  class="nav-link" active-class="active">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>Profile</p>
-                    </router-link>
+                  
                 </li>
             </ul>
         </nav>

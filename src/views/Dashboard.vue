@@ -427,11 +427,10 @@
 </template>
 
 <script>
-import $ from 'jquery';
-import jQuery from 'jquery';
-import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
-// import 'admin-lte/dist/js/adminlte.js';
-import 'admin-lte/plugins/chart.js/Chart.min.js';
+  import $ from 'jquery';
+  import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
+  import 'admin-lte/dist/js/adminlte.js';
+  import 'admin-lte/plugins/chart.js/Chart.min.js';
   export default {
     name: 'Dashboard',
     mounted() {
