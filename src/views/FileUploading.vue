@@ -13,36 +13,30 @@
               <form>
                   <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Subject</label>
+                        <label>Subject</label>
                         <select class="form-control" v-model="selectedSubject">
                           <option selected value="0">Choose Subject</option>
                           <option  v-bind:key="subject.id" v-for="subject in subjects" :value="subject.id">{{subject.name}}</option>
                           </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Module</label>
-                        <select class="form-control">
-                            <option>Module 1 (Simple Tenses)</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
+                      <label>Module</label>
+                      <select class="form-control" v-model="selectedModule">
+                        <option selected value="0">Choose Subject</option>
+                        <option  v-bind:key="mod.id" v-for="mod in modules" :value="mod.id">{{mod.name}}</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Section</label>
-                        <select class="form-control">
-                            <option>Section 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                        <label>Section</label>
+                        <select class="form-control" v-model="selectedSection">
+                            <option selected value="0">Choose Section</option>
+                            <option  v-bind:key="section.id" v-for="section in sections" :value="section.id">{{section.name}}</option>
                           </select>
                     </div>
                     <div class="form-group">
                       <div class="form-group">
                         <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
                       </div>
                     </div>
                   </div>
@@ -74,22 +68,33 @@
           {name: 'Math', id: 2},
           {name: 'Filipino', id: 3},
         ],
-        modules: '',
-        sections:'',
-        selectedSubject: 0
+        modules: [
+          {name: 'Module 1 (Vocabulary)', id: 1},
+          {name: 'Module 2 (Simple Tenses)', id: 2},
+          {name: 'Module 3 (Preposition)', id: 3},
+        ],
+        sections:[
+          {name: 'Section 1', id: 1},
+          {name: 'Section 2', id: 2},
+          {name: 'Section 3', id: 3},
+        ],
+        file: '',
+        selectedSubject: 0,
+        selectedModule: 0,
+        selectedSection: 0
       }
     },
     mounted() {
-      console.log(process.env.NODE_ENV)
-      axios.get(process.env.VUE_APP_ROOT_API + 'api/get-source-codes.php')
-      .then(response => {
-        // JSON responses are automatically parsed.
-        var posts = response.data
-        alert(JSON.stringify(posts))
-      })
-      .catch(e => {
+      // axios.get(process.env.VUE_APP_ROOT_API + 'api/get-source-codes.php')
+      // .then(response => {
+      //   // JSON responses are automatically parsed.
+      //   var posts = response.data
+      //   alert(JSON.stringify(posts))
+      // })
+      // .catch(e => {
         
-      })
+      // })
+      
 
       // fetch('api/get-source-codes.php')
       //   .then(async response => {
@@ -104,7 +109,27 @@
     },
     methods : {
       startAssessment() {
-        alert(this.selectedSubject);
+        alert(this.selectedSubject + ' ' + this.selectedModule);
+        let formData = new FormData();
+        formData.append('file', this.file);
+        axios({
+        method: 'post',
+        url: process.env.VUE_APP_ROOT_API + 'get-source-codes.php',
+        data: formData,
+        config: { headers: {'Content-Type': 'multipart/form-data' }}
+      })
+      .then(function (response) {
+        var posts = response.data
+        alert(JSON.stringify(posts))
+        
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response)
+      });
+      },
+      getUploadedFile(){
+        this.file = this.$refs.file.files[0];
       }
     }
   }
