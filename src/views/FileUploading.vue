@@ -109,27 +109,37 @@
     },
     methods : {
       startAssessment() {
-        alert(this.selectedSubject + ' ' + this.selectedModule);
-        let formData = new FormData();
-        formData.append('file', this.file);
-        formData.append('selectedSubject', this.selectedSubject);
-        formData.append('selectedModule', this.selectedModule);
-        formData.append('selectedSection', this.selectedSection)
-        axios({
-          method: 'post',
-          url: process.env.VUE_APP_ROOT_API + 'save-assessment-result.php',
-          data: formData,
-          config: { headers: {'Content-Type': 'multipart/form-data' }}
-        })
-        .then(function (response) {
-          var posts = response.data
-          alert(JSON.stringify(posts))
-          
-        })
-        .catch(function (response) {
-          //handle error
-          console.log(response)
-        });
+        // check if subject, module and a section was selected
+        if (this.selectedSubject === 0) {
+          alert('Please select a subject')
+        }
+        else if (this.selectedModule === 0) {
+          alert('Please select a module')
+        }
+        else if (this.selectedSection === 0) {
+          alert('Please select a section')
+        } else {
+          let formData = new FormData();
+          formData.append('file', this.file);
+          formData.append('selectedSubject', this.selectedSubject);
+          formData.append('selectedModule', this.selectedModule);
+          formData.append('selectedSection', this.selectedSection)
+          axios({
+            method: 'post',
+            url: process.env.VUE_APP_ROOT_API + 'save-assessment-result.php',
+            data: formData,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+          })
+          .then(function (response) {
+            var posts = response.data
+            alert(JSON.stringify(posts))
+            
+          })
+          .catch(function (response) {
+            //handle error
+            console.log(response)
+          });
+        }
       },
       getUploadedFile(){
         this.file = this.$refs.file.files[0];
