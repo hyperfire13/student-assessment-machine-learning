@@ -17,7 +17,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Learning Outcomes</h3>
+                <h3 class="card-title">Course Decision Outcome - SECTION A</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -36,11 +36,25 @@
                 <table class="table table-head-fixed text-nowrap table-bordered text-center">
                   <thead>
                     <tr>
-                      <th>Student</th>
-                      <th>Competency</th>
+                      <th>Student ID</th>
+                      <th>CITY ADDRESS</th>
+                      <th>SCHOOL</th>
+                      <th>TRACK</th>
+                      <th>GENDER</th>
+                      <th>AGE</th>
+                      <th>ISP</th>
+                      <th>PARENT'S MONTHLY INCOME</th>
+                      <th>GRADE 11 GWA</th>
+                      <th>GRADE 12 GWA</th>
+                      <th> 1st-year college 1st semester GWA</th>
+                      <th> 1st year college 2nd semester GWA</th>
+                      <th> ORGANIZATION</th>
+                      <th>Result</th>
+                      <!-- <th>Student</th> -->
+                      <!-- <th>Competency</th>
                       <th colspan="5">Module 1 (Simple Tenses)</th>
                       <th colspan="5">Module 2(Punctation)</th>
-                      <th colspan="5">Module 3(Vocabulary)</th>
+                      <th colspan="5">Module 3(Vocabulary)</th> -->
                       <!-- <th colspan="5">Module 4(Grammar)</th>
                       <th colspan="5">Module 5(Writing)</th>
                       <th colspan="5">Module 6(Writing)</th>
@@ -51,213 +65,134 @@
                     </tr>
                   </thead>
                   <tbody>
+                   
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <!-- <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th>
-                      <th>Q1</th>
-                      <th>Q2</th>
-                      <th>Q3</th>
-                      <th>Average</th>
-                      <th>Result</th> -->
+                      <td>PLP-101</td>
+                      <td>Pasig</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>Male</td>
+                      <td>23</td>
+                      <td>PLDT</td>
+                      <td>20,000</td>
+                      <td>88</td>
+                      <td>87</td>
+                      <td>1.44</td>
+                      <td>1.75</td>
+                      <td>CHURCH ORG</td>
+                      <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>Adams Bob</td>
-                      <td><button v-on:click="showCompetency()" type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>100%</td>
-                      <td class="bg-success">Good</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>100%</td>
-                      <td class="bg-success">Good</td>
-                    
+                      <td>PLP-1221</td>
+                      <td>TAGUIG</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>FEMALE</td>
+                      <td>21</td>
+                      <td>GLOBE</td>
+                      <td>30,000</td>
+                      <td>88</td>
+                      <td>87</td>
+                      <td>1.44</td>
+                      <td>1.75</td>
+                      <td>NONE</td>
+                      <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>Bell Jim</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>70%</td>
-                      <td class="bg-success">Good</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
+                      <td>PLP-3343</td>
+                      <td>MARIKINA</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>MALE</td>
+                      <td>21</td>
+                      <td>NONE</td>
+                      <td>15,000</td>
+                      <td>85</td>
+                      <td>83</td>
+                      <td>1.26</td>
+                      <td>1.44</td>
+                      <td>SPORTS ORG</td>
+                      <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>Carter John</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>14.3%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
+                      <td>PLP-3578</td>
+                      <td>MAKATI</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>MALE</td>
+                      <td>25</td>
+                      <td>CONVERGE</td>
+                      <td>25,000</td>
+                      <td>83</td>
+                      <td>83</td>
+                      <td>2.26</td>
+                      <td>2.87</td>
+                      <td>HIP HOP ORG</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                     <tr>
+                      <td>PLP-5632</td>
+                      <td>PASIG</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>FEMALE</td>
+                      <td>23</td>
+                      <td>CONVERGE</td>
+                      <td>45,000</td>
+                      <td>89</td>
+                      <td>85</td>
+                      <td>1.89</td>
+                      <td>1.90</td>
+                      <td>CULINARY ORG</td>
+                      <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>Doe Michael</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>100%</td>
-                      <td class="bg-success">Good</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>10</td>
-                      <td>100%</td>
-                      <td class="bg-success">Good</td>
+                      <td>PLP-4622</td>
+                      <td>PASIG</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>MALE</td>
+                      <td>23</td>
+                      <td>SMART</td>
+                      <td>25,000</td>
+                      <td>87</td>
+                      <td>87</td>
+                      <td>1.77</td>
+                      <td>2.50</td>
+                      <td>GAMING ORG</td>
+                      <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>Ellis Mike</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>14.3%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
+                      <td>PLP-2345</td>
+                      <td>PASIG</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>MALE</td>
+                      <td>23</td>
+                      <td>NONE</td>
+                      <td>25,000</td>
+                      <td>83</td>
+                      <td>82</td>
+                      <td>2.77</td>
+                      <td>1.50</td>
+                      <td>CHURCH ORG</td>
+                      <td class="bg-danger">NO</td>
                     </tr>
-                    <tr>
-                      <td>Fay Rocky</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>70%</td>
-                      <td class="bg-success">Good</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                    </tr>
-                    <tr>
-                      <td>Garen Victoria</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>70%</td>
-                      <td class="bg-success">Good</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                    </tr>
-                    <tr>
-                      <td> <div class="image">
-                      </div>Harrison Alexander</td>
-                      <td><button type="button" class="btn btn-sm  btn-primary"><i class="fas fa-chart-bar "></i></button></td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>7</td>
-                      <td>70%</td>
-                      <td class="bg-success">Good</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>2</td>
-                      <td>47%</td>
-                      <td class="bg-danger">N.I.</td>
+                   <tr>
+                      <td>PLP-1111</td>
+                      <td>PATEROS</td>
+                      <td>PLP</td>
+                      <td>STEM</td>
+                      <td>FENALE</td>
+                      <td>21</td>
+                      <td>NONE</td>
+                      <td>15,000</td>
+                      <td>85</td>
+                      <td>86</td>
+                      <td>2.00</td>
+                      <td>2.00</td>
+                      <td>NONE</td>
+                      <td class="bg-success">YES</td>
                     </tr>
                   </tbody>
                 </table>

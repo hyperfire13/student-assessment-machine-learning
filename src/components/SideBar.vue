@@ -23,7 +23,7 @@
             </div>
             <div class="info">
                 <a href="#">
-                    Kenneth pogi
+                    Kenneth pogi hreehe
                 </a>
             </div>
         </div>

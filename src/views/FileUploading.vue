@@ -12,7 +12,7 @@
               <!-- form start -->
               <form>
                   <div class="card-body">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Subject</label>
                         <select class="form-control" v-model="selectedSubject">
                           <option selected value="0">Choose Subject</option>
@@ -25,7 +25,7 @@
                         <option selected value="0">Choose Module</option>
                         <option  v-bind:key="mod.id" v-for="mod in modules" :value="mod.id">{{mod.name}}</option>
                         </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label>Section</label>
                         <select class="form-control" v-model="selectedSection">
@@ -35,14 +35,14 @@
                     </div>
                     <div class="form-group">
                       <div class="form-group">
-                        <label for="exampleFormControlFile1">Example file input</label>
+                        <label for="exampleFormControlFile1">Student's Profile</label>
                         <input ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
                       </div>
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">
-                  <button type="submit" v-on:click="startAssessment()" class="btn btn-primary float-right">Start assessment</button>
+                  <button type="submit" v-on:click="startAssessment()" class="btn btn-primary float-right">Upload</button>
                   </div>
               </form>
           </div>
