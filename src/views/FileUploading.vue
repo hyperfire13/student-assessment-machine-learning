@@ -6,7 +6,7 @@
         <div class="col-md-6">
           <div class="card card-primary">
               <div class="card-header">
-                  <h3 class="card-title">Exam Details</h3>
+                  <h3 class="card-title">Students' Profile</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -26,16 +26,16 @@
                         <option  v-bind:key="mod.id" v-for="mod in modules" :value="mod.id">{{mod.name}}</option>
                         </select>
                     </div> -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Section</label>
                         <select class="form-control" v-model="selectedSection">
                             <option selected value="0">Choose Section</option>
                             <option  v-bind:key="section.id" v-for="section in sections" :value="section.id">{{section.name}}</option>
                           </select>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                       <div class="form-group">
-                        <label for="exampleFormControlFile1">Student's Profile</label>
+                        <label for="exampleFormControlFile1">Students' Profile</label>
                         <input ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
                       </div>
                     </div>

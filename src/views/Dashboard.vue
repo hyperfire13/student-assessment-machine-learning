@@ -69,7 +69,7 @@
                     <tr>
                       <td>PLP-101</td>
                       <td>Pasig</td>
-                      <td>PLP</td>
+                      <td>PINAGBUHATAN HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>Male</td>
                       <td>23</td>
@@ -79,13 +79,13 @@
                       <td>87</td>
                       <td>1.44</td>
                       <td>1.75</td>
-                      <td>CHURCH ORG</td>
+                      <td>PASIGYAW</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
                       <td>PLP-1221</td>
                       <td>TAGUIG</td>
-                      <td>PLP</td>
+                      <td>PINAGBUHATAN HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>FEMALE</td>
                       <td>21</td>
@@ -101,7 +101,7 @@
                     <tr>
                       <td>PLP-3343</td>
                       <td>MARIKINA</td>
-                      <td>PLP</td>
+                      <td>EUSEBIO HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>MALE</td>
                       <td>21</td>
@@ -111,13 +111,13 @@
                       <td>83</td>
                       <td>1.26</td>
                       <td>1.44</td>
-                      <td>SPORTS ORG</td>
+                      <td>HIMIG CHORAL</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
                       <td>PLP-3578</td>
                       <td>MAKATI</td>
-                      <td>PLP</td>
+                      <td>PINAGBUHATAN HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>MALE</td>
                       <td>25</td>
@@ -127,13 +127,13 @@
                       <td>83</td>
                       <td>2.26</td>
                       <td>2.87</td>
-                      <td>HIP HOP ORG</td>
+                      <td>COMSOC</td>
                       <td class="bg-success">YES</td>
                     </tr>
                      <tr>
                       <td>PLP-5632</td>
                       <td>PASIG</td>
-                      <td>PLP</td>
+                      <td>KAPITOLYO HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>FEMALE</td>
                       <td>23</td>
@@ -143,13 +143,13 @@
                       <td>85</td>
                       <td>1.89</td>
                       <td>1.90</td>
-                      <td>CULINARY ORG</td>
+                      <td>PLP INCOGNITO</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
                       <td>PLP-4622</td>
                       <td>PASIG</td>
-                      <td>PLP</td>
+                      <td>PINAGBUHATAN HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>MALE</td>
                       <td>23</td>
@@ -159,13 +159,13 @@
                       <td>87</td>
                       <td>1.77</td>
                       <td>2.50</td>
-                      <td>GAMING ORG</td>
+                      <td>COMSOC</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
                       <td>PLP-2345</td>
                       <td>PASIG</td>
-                      <td>PLP</td>
+                      <td>NAGPAYONG HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>MALE</td>
                       <td>23</td>
@@ -175,13 +175,13 @@
                       <td>82</td>
                       <td>2.77</td>
                       <td>1.50</td>
-                      <td>CHURCH ORG</td>
+                      <td>PASIGYAW</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                    <tr>
                       <td>PLP-1111</td>
                       <td>PATEROS</td>
-                      <td>PLP</td>
+                      <td>PATEROS HIGH SCHOOL</td>
                       <td>STEM</td>
                       <td>FENALE</td>
                       <td>21</td>
