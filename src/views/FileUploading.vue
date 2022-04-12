@@ -16,7 +16,7 @@
                         <label>Subject</label>
                         <select class="form-control" v-model="selectedSubject">
                           <option selected value="0">Choose Subject</option>
-                          <option  v-bind:key="subject.id" v-for="subject in subjects" :value="subject.id">{{subject.name}}</option>
+                          <option  v-bind:key="subject.id" v-for= "subject in subjects" :value="subject.id">{{subject.name}}</option>
                           </select>
                     </div>
                     <div class="form-group">

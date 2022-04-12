@@ -36,19 +36,17 @@
                 <table class="table table-head-fixed text-nowrap table-bordered text-center">
                   <thead>
                     <tr>
-                      <th>Student ID</th>
+                      <th>STUDENT ID</th>
                       <th>CITY ADDRESS</th>
-                      <th>SCHOOL</th>
+                      <th>LAST SCHOOL ATTENDED</th>
                       <th>TRACK</th>
                       <th>GENDER</th>
                       <th>AGE</th>
-                      <th>ISP</th>
                       <th>PARENT'S MONTHLY INCOME</th>
-                      <th>GRADE 11 GWA</th>
-                      <th>GRADE 12 GWA</th>
-                      <th> 1st-year college 1st semester GWA</th>
-                      <th> 1st year college 2nd semester GWA</th>
-                      <th> ORGANIZATION</th>
+                      <th>GWA Grade 11 and 12 </th>
+                      <th> GWA College 1st year 1st Semester</th>
+                      <th> GWA College 1st year 2nd Semester</th>
+                      <th>MEMBER OF ANYT SCHOOl ORGANIZATION</th>
                       <th>Result</th>
                       <!-- <th>Student</th> -->
                       <!-- <th>Competency</th>
@@ -67,131 +65,157 @@
                   <tbody>
                    
                     <tr>
-                      <td>PLP-101</td>
+                      <td>20-00336</td>
                       <td>Pasig</td>
-                      <td>PINAGBUHATAN HIGH SCHOOL</td>
-                      <td>STEM</td>
+                      <td>Buting High School</td>
+                      <td>TVL</td>
+                      <td>Female</td>
+                      <td>18</td>
+                      <td>below 9,520.00</td>
+                      <td>90 - 95</td>
+                      <td>1.49 - 1.00</td>
+                      <td>1.49 - 1.00</td>
+                      <td>YES</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>20-00694</td>
+                      <td>Pasig</td>
+                      <td>Rizal High School</td>
+                      <td>TVL</td>
+                      <td>Female</td>
+                      <td>19</td>
+                      <td>below 9,520.00</td>
+                      <td>90 - 95</td>
+                      <td>1.49 - 1.00</td>
+                      <td>1.49 - 1.00</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>20-00356</td>
+                      <td>Pasig</td>
+                      <td>AMA</td>
+                      <td>TVL</td>
                       <td>Male</td>
-                      <td>23</td>
-                      <td>PLDT</td>
-                      <td>20,000</td>
-                      <td>88</td>
-                      <td>87</td>
-                      <td>1.44</td>
-                      <td>1.75</td>
-                      <td>PASIGYAW</td>
+                      <td>19</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>1.49 - 1.00</td>
+                      <td>1.49 - 1.00</td>
+                      <td>NO</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>PLP-1221</td>
-                      <td>TAGUIG</td>
-                      <td>PINAGBUHATAN HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>FEMALE</td>
-                      <td>21</td>
-                      <td>GLOBE</td>
-                      <td>30,000</td>
-                      <td>88</td>
-                      <td>87</td>
-                      <td>1.44</td>
-                      <td>1.75</td>
-                      <td>NONE</td>
+                      <td>20-00793</td>
+                      <td>Pasig</td>
+                      <td>Others</td>
+                      <td>TVL</td>
+                      <td>Female</td>
+                      <td>19</td>
+                      <td>below 9,520.00</td>
+                      <td>85 - 89</td>
+                      <td>1.49 - 1.00</td>
+                      <td>1.49 - 1.00</td>
+                      <td>NO</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>PLP-3343</td>
-                      <td>MARIKINA</td>
-                      <td>EUSEBIO HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>MALE</td>
-                      <td>21</td>
-                      <td>NONE</td>
-                      <td>15,000</td>
-                      <td>85</td>
-                      <td>83</td>
-                      <td>1.26</td>
-                      <td>1.44</td>
-                      <td>HIMIG CHORAL</td>
+                      <td>20-00793</td>
+                      <td>Pasig</td>
+                      <td>Others</td>
+                      <td>TVL</td>
+                      <td>Female</td>
+                      <td>19</td>
+                      <td>below 9,520.00</td>
+                      <td>85 - 89</td>
+                      <td>1.49 - 1.00</td>
+                      <td>below 3.00</td>
+                      <td>NO</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>PLP-3578</td>
-                      <td>MAKATI</td>
-                      <td>PINAGBUHATAN HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>MALE</td>
-                      <td>25</td>
-                      <td>CONVERGE</td>
-                      <td>25,000</td>
-                      <td>83</td>
-                      <td>83</td>
-                      <td>2.26</td>
-                      <td>2.87</td>
-                      <td>COMSOC</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                     <tr>
-                      <td>PLP-5632</td>
-                      <td>PASIG</td>
-                      <td>KAPITOLYO HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>FEMALE</td>
-                      <td>23</td>
-                      <td>CONVERGE</td>
-                      <td>45,000</td>
-                      <td>89</td>
-                      <td>85</td>
-                      <td>1.89</td>
-                      <td>1.90</td>
-                      <td>PLP INCOGNITO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>PLP-4622</td>
-                      <td>PASIG</td>
-                      <td>PINAGBUHATAN HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>MALE</td>
-                      <td>23</td>
-                      <td>SMART</td>
-                      <td>25,000</td>
-                      <td>87</td>
-                      <td>87</td>
-                      <td>1.77</td>
-                      <td>2.50</td>
-                      <td>COMSOC</td>
+                      <td>20-00792</td>
+                      <td>Pasig</td>
+                      <td>Others</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>19</td>
+                      <td>below 9,520.00</td>
+                      <td>85 - 89</td>
+                      <td>1.49 - 1.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>NO</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>PLP-2345</td>
-                      <td>PASIG</td>
-                      <td>NAGPAYONG HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>MALE</td>
-                      <td>23</td>
-                      <td>NONE</td>
-                      <td>25,000</td>
-                      <td>83</td>
-                      <td>82</td>
-                      <td>2.77</td>
-                      <td>1.50</td>
-                      <td>PASIGYAW</td>
+                      <td>20-00234</td>
+                      <td>Pasig</td>
+                      <td>Others</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>20</td>
+                      <td>below 9,520.00</td>
+                      <td>85 - 89</td>
+                      <td>2.49 - 2.00</td>
+                      <td>below 3.00</td>
+                      <td>YES</td>
                       <td class="bg-danger">NO</td>
                     </tr>
-                   <tr>
-                      <td>PLP-1111</td>
-                      <td>PATEROS</td>
-                      <td>PATEROS HIGH SCHOOL</td>
-                      <td>STEM</td>
-                      <td>FENALE</td>
-                      <td>21</td>
-                      <td>NONE</td>
-                      <td>15,000</td>
-                      <td>85</td>
-                      <td>86</td>
-                      <td>2.00</td>
-                      <td>2.00</td>
-                      <td>NONE</td>
+                    <tr>
+                      <td>20-00653</td>
+                      <td>Pasig</td>
+                      <td>AMA</td>
+                      <td>TVL</td>
+                      <td>Female</td>
+                      <td>18</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>1.49 - 1.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>YES</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>20-00539</td>
+                      <td>Pasig</td>
+                      <td>AMA</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>20</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>20-00539</td>
+                      <td>Pasig</td>
+                      <td>AMA</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>20</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>20-00935</td>
+                      <td>Pasig</td>
+                      <td>Others</td>
+                      <td>TVL</td>
+                      <td>Female</td>
+                      <td>20</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>1.49 - 1.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>YES</td>
                       <td class="bg-success">YES</td>
                     </tr>
                   </tbody>
@@ -251,7 +275,7 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Learning Distribution</h3>
+        <h3 class="card-title">Possible Attrition Rate</h3>
         
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -265,7 +289,7 @@
       <!-- /.card-header -->
       <div class="card-body">
         <div class="row">
-          <div class="col-md-3">
+          <!-- <div class="col-md-3">
             <div class="form-group">
               <label>Section:</label>
               <select class="form-control">
@@ -286,7 +310,7 @@
                 <option>option 5</option>
               </select>
             </div>
-          </div>
+          </div> -->
           <div class="col-md-4">
             <div class="chart-responsive">
               <canvas id="pieChart" height="150"></canvas>
@@ -296,8 +320,9 @@
           <!-- /.col -->
           <div class="col-md-3">
             <ul class="chart-legend clearfix">
-              <li><i class="far fa-circle text-danger"></i> Needs Improvement : 30%</li>
-              <li><i class="far fa-circle text-success"></i> Good : 70%</li>
+              <li><i class="far fa-circle text-warning"></i> Total Number of Students : 160</li>
+              <li><i class="far fa-circle text-success"></i> Students that will continue : 91% (145 students)</li>
+              <li><i class="far fa-circle text-danger"></i> Students that will stop :  9% (15 students)</li>
             </ul>
           </div>
           <!-- /.col -->
@@ -377,11 +402,11 @@
       const canvas =document.getElementById('pieChart');
       const pieChartCanvas = canvas.getContext('2d');
       const pieData = {
-        labels: ['Needs Improvement', 'Good'],
+        labels: ['Will Continue', 'Will Stop'],
         datasets: [
           {
-            data: [30, 70],
-            backgroundColor: ['#f56954', '#00a65a']
+            data: [145, 15],
+            backgroundColor: ['#00a65a', '#f56954']
           }
         ]
       };
