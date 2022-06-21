@@ -63,117 +63,116 @@
                     </tr>
                   </thead>
                   <tbody>
-                   
                     <tr>
-                      <td>20-00336</td>
-                      <td>Pasig</td>
-                      <td>Buting High School</td>
-                      <td>TVL</td>
-                      <td>Female</td>
-                      <td>18</td>
-                      <td>below 9,520.00</td>
-                      <td>90 - 95</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>YES</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>20-00694</td>
+                      <td>21-00680</td>
                       <td>Pasig</td>
                       <td>Rizal High School</td>
                       <td>TVL</td>
-                      <td>Female</td>
-                      <td>19</td>
-                      <td>below 9,520.00</td>
-                      <td>90 - 95</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>20-00356</td>
-                      <td>Pasig</td>
-                      <td>AMA</td>
-                      <td>TVL</td>
                       <td>Male</td>
                       <td>19</td>
                       <td>9,520.00 - 19,040.00</td>
+                      <td>85 - 89</td>
+                      <td>1.49 - 1.00</td>
+                      <td>1.99  - 1.50</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>21-00437</td>
+                      <td>Pasig</td>
+                      <td>Buting High School</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>18</td>
+                      <td>below 9,520.00</td>
                       <td>90 - 95</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>20-00793</td>
-                      <td>Pasig</td>
-                      <td>Others</td>
-                      <td>TVL</td>
-                      <td>Female</td>
-                      <td>19</td>
-                      <td>below 9,520.00</td>
-                      <td>85 - 89</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>20-00793</td>
-                      <td>Pasig</td>
-                      <td>Others</td>
-                      <td>TVL</td>
-                      <td>Female</td>
-                      <td>19</td>
-                      <td>below 9,520.00</td>
-                      <td>85 - 89</td>
-                      <td>1.49 - 1.00</td>
+                      <td>1.99  - 1.50</td>
                       <td>below 3.00</td>
                       <td>NO</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>20-00792</td>
+                      <td>21-00056</td>
                       <td>Pasig</td>
-                      <td>Others</td>
-                      <td>TVL</td>
-                      <td>Male</td>
-                      <td>19</td>
-                      <td>below 9,520.00</td>
-                      <td>85 - 89</td>
-                      <td>1.49 - 1.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>20-00234</td>
-                      <td>Pasig</td>
-                      <td>Others</td>
-                      <td>TVL</td>
+                      <td>Rizal High School</td>
+                      <td>STEM</td>
                       <td>Male</td>
                       <td>20</td>
-                      <td>below 9,520.00</td>
-                      <td>85 - 89</td>
-                      <td>2.49 - 2.00</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>1.99  - 1.50</td>
                       <td>below 3.00</td>
-                      <td>YES</td>
+                      <td>NO</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>20-00653</td>
-                      <td>Pasig</td>
-                      <td>AMA</td>
+                      <td>21-00985</td>
+                      <td>Others</td>
+                      <td>Arellano University - Andres Bonifacio Campus</td>
                       <td>TVL</td>
                       <td>Female</td>
-                      <td>18</td>
+                      <td>19</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>90 - 95</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.49 - 1.00</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>20-00363</td>
+                      <td>Pasig</td>
+                      <td>Buting High School</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>21</td>
+                      <td>below 9,520.00</td>
+                      <td>85 - 89</td>
+                      <td>1.49 - 1.00</td>
+                      <td>below 3.00</td>
+                      <td>NO</td>
+                      <td class="bg-danger">NO</td>
+                    </tr>
+                    <tr>
+                      <td>21-00614</td>
+                      <td>Pasig</td>
+                      <td>RTU</td>
+                      <td>STEM</td>
+                      <td>Female</td>
+                      <td>19</td>
+                      <td>19,041.00 - 38,080.00</td>
+                      <td>85 - 89</td>
+                      <td>2.50 - 3.00</td>
+                      <td>1.49 - 1.00</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>21-01072</td>
+                      <td>Pasig</td>
+                      <td>Respcsi</td>
+                      <td>4th year high school</td>
+                      <td>Female</td>
+                      <td>22</td>
+                      <td>below 9,520.00</td>
+                      <td>75 - 80</td>
+                      <td>below 3.00</td>
+                      <td>below 3.00</td>
+                      <td>NO</td>
+                      <td class="bg-danger">NO</td>
+                    </tr>
+                    <tr>
+                      <td>21-00322</td>
+                      <td>Pasig</td>
+                      <td>Sagad High School</td>
+                      <td>TVL</td>
+                      <td>Male</td>
+                      <td>19</td>
                       <td>9,520.00 - 19,040.00</td>
                       <td>90 - 95</td>
                       <td>1.49 - 1.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>YES</td>
+                      <td></td>
+                      <td>NO</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
