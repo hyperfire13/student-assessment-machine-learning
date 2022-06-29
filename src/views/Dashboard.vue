@@ -37,17 +37,21 @@
                   <thead>
                     <tr>
                       <th>STUDENT ID</th>
-                      <th>CITY ADDRESS</th>
-                      <th>LAST SCHOOL ATTENDED</th>
-                      <th>TRACK</th>
-                      <th>GENDER</th>
                       <th>AGE</th>
+                      <th>GENDER</th>
+                      <th>RESIDENCY CATEGORY</th>
                       <th>PARENT'S MONTHLY INCOME</th>
+                      <th>LAST SCHOOL ATTENDED(High School)</th>
+                      <th>TRACK</th>
                       <th>GWA Grade 11 and 12 </th>
-                      <th> GWA College 1st year 1st Semester</th>
-                      <th> GWA College 1st year 2nd Semester</th>
-                      <th>MEMBER OF ANYT SCHOOl ORGANIZATION</th>
-                      <th>Result</th>
+                      <th>MATHEMATICS IN THE MODERN WORLD</th>
+                      <th>INTRODUCTION TO COMPUTING</th>
+                      <th>FUNDAMENTALS OF PROGRAMMING (C++)</th>
+                      <th>PURPOSIVE COMMUNICATION</th>
+                      <th>INTERMEDIATE PROGRAMMING(Java)</th>
+                      <th>DISCRETE MATHEMATICS</th>
+                      <th>MEMBER OF ANY SCHOOl ORGANIZATION</th>
+                      <th>WILL CONTINUE?</th>
                       <!-- <th>Student</th> -->
                       <!-- <th>Competency</th>
                       <th colspan="5">Module 1 (Simple Tenses)</th>
@@ -64,16 +68,20 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>21-00680</td>
-                      <td>Pasig</td>
-                      <td>Rizal High School</td>
-                      <td>TVL</td>
-                      <td>Male</td>
+                      <td>21-00357</td>
                       <td>19</td>
+                      <td>Male</td>
+                      <td>PR</td>
                       <td>9,520.00 - 19,040.00</td>
-                      <td>85 - 89</td>
-                      <td>1.49 - 1.00</td>
+                      <td>Public</td>
+                      <td>STEM</td>
+                      <td>90 - 95</td>
                       <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.50 - 3.00</td>
                       <td>NO</td>
                       <td class="bg-success">YES</td>
                     </tr>
