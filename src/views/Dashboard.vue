@@ -13,7 +13,68 @@
 
   <!-- Main content -->
   <section class="content">
+     
       <div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Factors Affecting Attrition Rate and Interventions</h3>
+<div class="card-tools">
+<div class="input-group input-group-sm" style="width: 150px;">
+<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+<div class="input-group-append">
+<button type="submit" class="btn btn-default">
+<i class="fas fa-search"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card-body table-responsive p-0">
+<table class="table table-bordered table-hover text-nowrap">
+<thead>
+ <tr>
+<th>Factor</th>
+<th>Possible Intervention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fundamentals of Programming (C++)</td>
+<td>Student Teacher Coaching</td>
+</tr>
+<tr>
+<td>PARENT'S MONTHLY INCOME</td>
+<td>
+  <ul>
+    <li>Pasig City Scholarship Program</li>
+    <li>Connectivity Allowance</li>
+    <li>Luis Co Chi Kiat Foundation</li>
+  </ul>
+</td>
+</tr>
+<tr>
+<td>RESIDENCY CATEGORY</td>
+<td><ul>
+    <li>Start early commute</li>
+    <li>Strict Time management to avoid tardiness</li>
+    <li>Find a place to stay near the university</li>
+  </ul></td>
+</tr>
+<tr>
+<td>175</td>
+<td>Mike Doe</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+ <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -86,116 +147,148 @@
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>21-00437</td>
-                      <td>Pasig</td>
-                      <td>Buting High School</td>
-                      <td>TVL</td>
-                      <td>Male</td>
+                      <td>21-00285</td>
                       <td>18</td>
-                      <td>below 9,520.00</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>below 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>21-00056</td>
-                      <td>Pasig</td>
-                      <td>Rizal High School</td>
-                      <td>STEM</td>
-                      <td>Male</td>
-                      <td>20</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>below 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>21-00985</td>
-                      <td>Others</td>
-                      <td>Arellano University - Andres Bonifacio Campus</td>
-                      <td>TVL</td>
                       <td>Female</td>
-                      <td>19</td>
-                      <td>9,520.00 - 19,040.00</td>
+                      <td>PR</td>
+                      <td>below 9,520.00</td>
+                      <td>Public</td>
+                      <td>STEM</td>
                       <td>90 - 95</td>
+                      <td>1.99  - 1.50</td>
                       <td>1.99  - 1.50</td>
                       <td>1.49 - 1.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.50 - 3.00</td>
                       <td>NO</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>20-00363</td>
-                      <td>Pasig</td>
-                      <td>Buting High School</td>
+                      <td>21-01024</td>
+                      <td>18</td>
+                      <td>Female</td>
+                      <td>PR</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>Public</td>
                       <td>TVL</td>
-                      <td>Male</td>
-                      <td>21</td>
-                      <td>below 9,520.00</td>
-                      <td>85 - 89</td>
+                      <td>90 - 95</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.49 - 2.00</td>
                       <td>1.49 - 1.00</td>
-                      <td>below 3.00</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
                       <td>NO</td>
-                      <td class="bg-danger">NO</td>
+                      <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>21-00614</td>
-                      <td>Pasig</td>
-                      <td>RTU</td>
-                      <td>STEM</td>
-                      <td>Female</td>
-                      <td>19</td>
-                      <td>19,041.00 - 38,080.00</td>
-                      <td>85 - 89</td>
+                      <td>21-01100</td>
+                      <td>22</td>
+                      <td>Male</td>
+                      <td>PR</td>
+                      <td>9,520.00 - 19,040.00</td>
+                      <td>Public</td>
+                      <td>4th year high school</td>
+                      <td>75 - 80</td>
+                      <td>2.50 - 3.00</td>
                       <td>2.50 - 3.00</td>
                       <td>1.49 - 1.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-01072</td>
-                      <td>Pasig</td>
-                      <td>Respcsi</td>
-                      <td>4th year high school</td>
-                      <td>Female</td>
-                      <td>22</td>
-                      <td>below 9,520.00</td>
-                      <td>75 - 80</td>
+                      <td>1.99  - 1.50</td>
                       <td>below 3.00</td>
                       <td>below 3.00</td>
                       <td>NO</td>
                       <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
-                      <td>21-00322</td>
-                      <td>Pasig</td>
-                      <td>Sagad High School</td>
-                      <td>TVL</td>
+                      <td>21-00922</td>
+                      <td>22</td>
                       <td>Male</td>
-                      <td>19</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>90 - 95</td>
+                      <td>PR</td>
+                      <td>below 9,520.00</td>
+                      <td>Private</td>
+                      <td>TVL</td>
+                      <td>81 - 84</td>
+                      <td>2.50 - 3.00</td>
+                      <td>2.50 - 3.00</td>
                       <td>1.49 - 1.00</td>
-                      <td></td>
+                      <td>1.99  - 1.50</td>
+                      <td>below 3.00</td>
+                      <td>below 3.00</td>
+                      <td>NO</td>
+                      <td class="bg-danger">NO</td>
+                    </tr>
+                    <tr>
+                      <td>21-00095</td>
+                      <td>19</td>
+                      <td>Female</td>
+                      <td>PR</td>
+                      <td>19,041.00 - 38,080.00</td>
+                      <td>Private</td>
+                      <td>STEM</td>
+                      <td>90 - 95</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.49 - 2.00</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.49 - 2.00</td>
                       <td>NO</td>
                       <td class="bg-success">YES</td>
                     </tr>
                     <tr>
-                      <td>20-00539</td>
-                      <td>Pasig</td>
-                      <td>AMA</td>
-                      <td>TVL</td>
-                      <td>Male</td>
-                      <td>20</td>
+                      <td>21-00943</td>
+                      <td>22</td>
+                      <td>Female</td>
+                      <td>PR</td>
                       <td>9,520.00 - 19,040.00</td>
+                      <td>Private</td>
+                      <td>STEM</td>
                       <td>90 - 95</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
+                      <td>1.99  - 1.50</td>
                       <td>2.49 - 2.00</td>
+                      <td>1.99  - 1.50</td>
                       <td>2.49 - 2.00</td>
                       <td>NO</td>
                       <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>21-00960</td>
+                      <td>22</td>
+                      <td>Female</td>
+                      <td>PR</td>
+                      <td>below 9,520.00</td>
+                      <td>Public</td>
+                      <td>4th year high school</td>
+                      <td>85 - 89</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>2.50 - 3.00</td>
+                      <td>NO</td>
+                      <td class="bg-success">YES</td>
+                    </tr>
+                    <tr>
+                      <td>21-00955</td>
+                      <td>22</td>
+                      <td>Female</td>
+                      <td>PR</td>
+                      <td>below 9,520.00</td>
+                      <td>Public</td>
+                      <td>4th year high school</td>
+                      <td>85 - 89</td>
+                      <td>2.49 - 2.00</td>
+                      <td>1.99  - 1.50</td>
+                      <td>2.50 - 3.00</td>
+                      <td>2.50 - 3.00</td>
+                      <td>2.49 - 2.00</td>
+                      <td>below 3.00</td>
+                      <td>NO</td>
+                      <td class="bg-danger">NO</td>
                     </tr>
                     <tr>
                       <td>20-00539</td>
@@ -232,7 +325,7 @@
             </div>
             <!-- /.card -->
           </div>
-        </div>
+      </div>
         <!-- /.row -->
       <!-- /.container-fluid -->
   </section>
