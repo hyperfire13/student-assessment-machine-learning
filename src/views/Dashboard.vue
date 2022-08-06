@@ -13,72 +13,12 @@
 
   <!-- Main content -->
   <section class="content">
-     
       <div class="row">
-<div class="col-12">
-<div class="card">
-<div class="card-header">
-<h3 class="card-title">Factors Affecting Attrition Rate and Interventions</h3>
-<div class="card-tools">
-<div class="input-group input-group-sm" style="width: 150px;">
-<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-<div class="input-group-append">
-<button type="submit" class="btn btn-default">
-<i class="fas fa-search"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card-body table-responsive p-0">
-<table class="table table-bordered table-hover text-nowrap">
-<thead>
- <tr>
-<th>Factor</th>
-<th>Possible Intervention</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Fundamentals of Programming (C++)</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>PARENT'S MONTHLY INCOME</td>
-<td>
-  <ul>
-    <li>Pasig City Scholarship Program</li>
-    <li>Connectivity Allowance</li>
-    <li>Luis Co Chi Kiat Foundation</li>
-  </ul>
-</td>
-</tr>
-<tr>
-<td>RESIDENCY CATEGORY</td>
-<td><ul>
-    <li>Start early commute</li>
-    <li>Strict Time management to avoid tardiness</li>
-    <li>Find a place to stay near the university</li>
-  </ul></td>
-</tr>
-<tr>
-<td>175</td>
-<td>Mike Doe</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-</div>
- <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Course Decision Outcome - SECTION A</h3>
+                <!-- <h3 class="card-title">Students' Profile</h3> -->
+                <h3 class="card-title"> List of incoming second year College Student’s Progression</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -326,6 +266,81 @@
             <!-- /.card -->
           </div>
       </div>
+      <div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-header">
+<h3 class="card-title">Factors Affecting Attrition Rate and Interventions</h3>
+<div class="card-tools">
+<div class="input-group input-group-sm" style="width: 150px;">
+<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+<div class="input-group-append">
+<button type="submit" class="btn btn-default">
+<i class="fas fa-search"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="card-body table-responsive p-0">
+<table class="table table-bordered table-hover text-nowrap">
+<thead>
+ <tr>
+<th>Factor</th>
+<th>Possible Intervention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purposive Communication</td>
+<td>Student Teacher Coaching</td>
+</tr>
+<tr>
+<td>Intermediate Programming (Java)</td>
+<td>Student Teacher Coaching</td>
+</tr>
+<tr>
+<td>Fundamentals of Programming (C++)</td>
+<td>Student Teacher Coaching</td>
+</tr>
+<tr>
+<td>Mathematics in the Modern World</td>
+<td>Student Teacher Coaching</td>
+</tr>
+<tr>
+<td>PARENT'S MONTHLY INCOME</td>
+<td>
+  <ul>
+    <li>Pasig City Scholarship Program</li>
+    <li>Connectivity Allowance</li>
+    <li>Luis Co Chi Kiat Foundation</li>
+    <li>CHED Scholarship - Tertiary Education Subsidy-Tulong Dunong Program (TES-TDP)(7,500/ sem)</li>
+    <li>Tertiary Education Subsidy (4Ps Awardee) (20,000/sem)</li>
+  </ul>
+</td>
+</tr>
+<tr>
+<td>RESIDENCY CATEGORY</td>
+<td><ul>
+    <li>Start early commute</li>
+    <li>Strict Time management to avoid tardiness</li>
+    <li>Find a place to stay near the university</li>
+  </ul></td>
+</tr>
+<tr>
+<td>175</td>
+<td>Mike Doe</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
         <!-- /.row -->
       <!-- /.container-fluid -->
   </section>
@@ -420,9 +435,9 @@
           <!-- /.col -->
           <div class="col-md-3">
             <ul class="chart-legend clearfix">
-              <li><i class="far fa-circle text-warning"></i> Total Number of Students : 160</li>
-              <li><i class="far fa-circle text-success"></i> Students that will continue : 91% (145 students)</li>
-              <li><i class="far fa-circle text-danger"></i> Students that will stop :  9% (15 students)</li>
+              <li><i class="far fa-circle text-warning"></i> Total Number of Students :102</li>
+              <li><i class="far fa-circle text-success"></i> Students that will continue : 87% (89 students)</li>
+              <li><i class="far fa-circle text-danger"></i> Students that will stop :  13% (13 students)</li>
             </ul>
           </div>
           <!-- /.col -->
