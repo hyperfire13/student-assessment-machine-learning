@@ -38,6 +38,21 @@
                         <input ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
                       </div>
                     </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>School Year:</label>
+                          <select class="form-control">
+                            <option>choose a school year</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                            <option>option 5</option>
+                          </select>
+                        </div>
+                      </div>
+
+                    </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer">

@@ -45,7 +45,7 @@
 
 <script>
 // @ is an alias to /src
-import Sidebar from '@/components/Sidebar.vue'
+import Sidebar from '/src/components/SideBar.vue'
 
 export default {
   name: 'Home',

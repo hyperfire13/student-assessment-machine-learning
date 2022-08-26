@@ -18,18 +18,41 @@
             <div class="card">
               <div class="card-header">
                 <!-- <h3 class="card-title">Students' Profile</h3> -->
-                <h3 class="card-title"> List of incoming second year College Student’s Progression</h3>
-
+                <h3 class="card-title"> 
+                  List of incoming second year College Student’s Progression
+                  <button type="button" class="btn btn-info">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </h3>
+              
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="input-group input-group-sm" >
+                        <select class="form-control">
+                            <option>choose a school year</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                            <option>option 5</option>
+                          </select>
+                        
+                      </div>
+                    </div>
+                     <div class="col-md-6">
+                      <div class="input-group input-group-sm" >
+                        <select class="form-control" style="width: 190px;">
+                            <option>choose a section</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                            <option>option 5</option>
+                          </select>
+                      </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
               <!-- /.card-header -->
@@ -38,6 +61,7 @@
                   <thead>
                     <tr>
                       <th>STUDENT ID</th>
+                      <th>SECTION</th>
                       <th>AGE</th>
                       <th>GENDER</th>
                       <th>RESIDENCY CATEGORY</th>
@@ -70,6 +94,7 @@
                   <tbody>
                     <tr>
                       <td>21-00357</td>
+                      <td>BSIT-2A</td>
                       <td>19</td>
                       <td>Male</td>
                       <td>PR</td>
@@ -88,6 +113,7 @@
                     </tr>
                     <tr>
                       <td>21-00285</td>
+                      <td>BSIT-2A</td>
                       <td>18</td>
                       <td>Female</td>
                       <td>PR</td>
@@ -106,6 +132,7 @@
                     </tr>
                     <tr>
                       <td>21-01024</td>
+                      <td>BSIT-2A</td>
                       <td>18</td>
                       <td>Female</td>
                       <td>PR</td>
@@ -124,12 +151,13 @@
                     </tr>
                     <tr>
                       <td>21-01100</td>
+                      <td>BSIT-2A</td>
                       <td>22</td>
                       <td>Male</td>
                       <td>PR</td>
                       <td>9,520.00 - 19,040.00</td>
                       <td>Public</td>
-                      <td>4th year high school</td>
+                      <td>Others</td>
                       <td>75 - 80</td>
                       <td>2.50 - 3.00</td>
                       <td>2.50 - 3.00</td>
@@ -142,6 +170,7 @@
                     </tr>
                     <tr>
                       <td>21-00922</td>
+                      <td>BSIT-2A</td>
                       <td>22</td>
                       <td>Male</td>
                       <td>PR</td>
@@ -160,6 +189,7 @@
                     </tr>
                     <tr>
                       <td>21-00095</td>
+                      <td>BSIT-2A</td>
                       <td>19</td>
                       <td>Female</td>
                       <td>PR</td>
@@ -178,6 +208,7 @@
                     </tr>
                     <tr>
                       <td>21-00943</td>
+                      <td>BSIT-2A</td>
                       <td>22</td>
                       <td>Female</td>
                       <td>PR</td>
@@ -196,12 +227,13 @@
                     </tr>
                     <tr>
                       <td>21-00960</td>
+                      <td>BSIT-2A</td>
                       <td>22</td>
                       <td>Female</td>
                       <td>PR</td>
                       <td>below 9,520.00</td>
                       <td>Public</td>
-                      <td>4th year high school</td>
+                      <td>Others</td>
                       <td>85 - 89</td>
                       <td>2.49 - 2.00</td>
                       <td>2.49 - 2.00</td>
@@ -214,12 +246,13 @@
                     </tr>
                     <tr>
                       <td>21-00955</td>
+                      <td>BSIT-2A</td>
                       <td>22</td>
                       <td>Female</td>
                       <td>PR</td>
                       <td>below 9,520.00</td>
                       <td>Public</td>
-                      <td>4th year high school</td>
+                      <td>Others</td>
                       <td>85 - 89</td>
                       <td>2.49 - 2.00</td>
                       <td>1.99  - 1.50</td>
@@ -232,6 +265,7 @@
                     </tr>
                     <tr>
                       <td>20-00539</td>
+                      <td>BSIT-2A</td>
                       <td>Pasig</td>
                       <td>AMA</td>
                       <td>TVL</td>
@@ -246,6 +280,7 @@
                     </tr>
                     <tr>
                       <td>20-00935</td>
+                      <td>BSIT-2A</td>
                       <td>Pasig</td>
                       <td>Others</td>
                       <td>TVL</td>
@@ -390,15 +425,21 @@
   <section class="content">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Possible Attrition Rate</h3>
+        <h3 class="card-title">
+          Possible Attrition Rate
+          <button type="button" class="btn btn-info btn-sm">
+            <i class="fas fa-download"></i>
+          </button>
+        </h3>
         
         <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
+          <select class="form-control" style="width: 190px;">
+            <option>choose a section</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+          </select>
         </div>
       </div>
       <!-- /.card-header -->
