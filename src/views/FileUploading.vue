@@ -95,7 +95,7 @@
         file: '',
         selectedSubject: 0,
         selectedModule: 0,
-        selectedSection: 0
+        selectedSection: 1
       }
     },
     mounted() {
@@ -124,19 +124,12 @@
     methods : {
       startAssessment() {
         // check if subject, module and a section was selected
-        if (this.selectedSubject === 0) {
-          alert('Please select a subject')
-        }
-        else if (this.selectedModule === 0) {
-          alert('Please select a module')
-        }
-        else if (this.selectedSection === 0) {
+        
+        if (this.selectedSection === 0) {
           alert('Please select a section')
         } else {
           let formData = new FormData();
           formData.append('file', this.file);
-          formData.append('selectedSubject', this.selectedSubject);
-          formData.append('selectedModule', this.selectedModule);
           formData.append('selectedSection', this.selectedSection)
           axios({
             method: 'post',

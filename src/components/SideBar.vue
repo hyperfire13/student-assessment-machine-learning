@@ -23,7 +23,7 @@
             </div>
             <div class="info">
                 <a href="#">
-                    Kenneth pogi sshessh
+                    {{userName}}
                 </a>
             </div>
         </div>
@@ -37,7 +37,7 @@
             >
                 <li class="nav-item">
                     <router-link
-                        to="/"
+                        to="/dashboard"
                         class="nav-link"
                         exact
                         exact-active-class="active"
@@ -75,6 +75,11 @@ import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
  import 'admin-lte/dist/js/adminlte.js';
 export default {
   name: 'Sidebar',
+  data() {
+    return {
+        userName: "pogi ako"
+    }
+  },
   props: {
     msg: String
   }
