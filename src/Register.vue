@@ -7,9 +7,9 @@
 
       <div class="card">
           <div class="card-body register-card-body">
-            <div :key="errorMessage" v-for="errorMessage in errorMessages">
-              <p class="login-box-msg text-danger">{{errorMessage}}</p>
-            </div>
+            <ul :key="errorMessage" v-for="errorMessage in errorMessages">
+              <li class="login-box-msg text-danger">{{errorMessage}}</li>
+            </ul>
             <p class="login-box-msg text-success">{{successMessage}}</p>
 
             <form action="../../index.html" method="post">
@@ -20,6 +20,7 @@
                       <span class="fas fa-user"></span>
                       </div>
                   </div>
+                  <span class="error invalid-feedback">Please enter first name</span>
                 </div>
                 <div class="input-group mb-3">
                   <input :class="{ 'is-invalid': lnameInvalid }" v-model="lastname" type="text" class="form-control" placeholder="Last name">
@@ -28,6 +29,7 @@
                       <span class="fas fa-user"></span>
                       </div>
                   </div>
+                  <span class="error invalid-feedback">Please enter last name</span>
                 </div>
                 <div class="input-group mb-3">
                   <input :class="{ 'is-invalid': unameInvalid }" v-model="username" type="text" class="form-control" placeholder="username">
@@ -36,6 +38,7 @@
                       <span class="fas fa-user"></span>
                       </div>
                   </div>
+                  <span class="error invalid-feedback">Invalid username</span>
                 </div>
                 <div class="input-group mb-3">
                 <input :class="{ 'is-invalid': passwordInvalid }" v-model="password" type="password" class="form-control" placeholder="Password">
@@ -44,17 +47,19 @@
                     <span class="fas fa-lock"></span>
                     </div>
                 </div>
+                <span class="error invalid-feedback">Please enter password</span>
                 </div>
                 <div class="input-group mb-3">
-                <input :class="{ 'is-invalid': repasswordInvalid }" v-model="repassword" type="password" class="form-control" placeholder="Retype password">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
-                    </div>
-                </div>
+                  <input :class="{ 'is-invalid': repasswordInvalid }" v-model="repassword" type="password" class="form-control" placeholder="Retype password">
+                  <div class="input-group-append">
+                      <div class="input-group-text">
+                      <span class="fas fa-lock"></span>
+                      </div>
+                  </div>
+                  <span class="error invalid-feedback">Password does not match, please retype</span>
                 </div>
                 <div class="input-group mb-3">
-                   <select v-model="selectedLevel" class="form-control" >
+                   <select :class="{ 'is-invalid': levelInvalid }" v-model="selectedLevel" class="form-control" >
                     <option selected="selected" >select user level</option>
                     <option  value="1">teacher</option>
                     <option  value="0">admin</option>
@@ -64,6 +69,7 @@
                       <span class="fas fa-user"></span>
                       </div>
                   </div>
+                  <span class="error invalid-feedback">Please select user level</span>
                 </div>
                
                 
@@ -104,9 +110,11 @@ export default {
         unameInvalid: 0,
         passwordInvalid: 0,
         repasswordInvalid: 0,
+        levelInvalid: 0,
         nowLoading: false,
         selectedLevel: "select user level",
         errorMessages: [],
+        validEntry: true,
         successMessage: ''
       }
     },
@@ -115,40 +123,42 @@ export default {
     },
     methods : {
       register() {
-        this.nowLoading = true;
+        this.nowLoading = false;
         this.errorMessages = [];
         this.fnameInvalid= 0;
         this.lnameInvalid= 0;
         this.unameInvalid= 0;
+        this.levelInvalid= 0;
         this.passwordInvalid= 0;
         this.repasswordInvalid= 0;
         this.successMessage= "";
+        this.validEntry = true;
 
         if (this.username === '') {
           this.unameInvalid = 1;
-          this.errorMessages.push('Invalid username, input a new one');
+          this.validEntry = false;
         }
         if (this.password === '') {
           this.passwordInvalid = 1;
-          this.errorMessages.push('Invalid password');
+          this.validEntry = false;
         }
         if (this.password !== this.repassword) {
           this.repasswordInvalid = 1;
-          this.errorMessages.push('password does not match, please retype')
+          this.validEntry = false;
         }
         if (this.firstname === '') {
           this.fnameInvalid = 1;
-          this.errorMessages.push('firstname is invalid')
+          this.validEntry = false;
         }
         if (this.lastname === '') {
           this.lnameInvalid = 1;
-          this.errorMessages.push('lastname is invalid')
+          this.validEntry = false;
         }
         if (this.selectedLevel === 'select user level') {
-          // this.lnameInvalid = 1;
-          this.errorMessages.push('user level not selected')
+          this.levelInvalid = 1;
+          this.validEntry = false;
         }
-        if (this.errorMessages.length === 0){
+        if (this.validEntry === true){
           this.nowLoading = true;
           let formData = new FormData();
           formData.append('username', this.username);
@@ -164,6 +174,7 @@ export default {
               }
             }
           ).then((response) => {
+            this.nowLoading = true;
             this.errorMessages = [];
             var result = response.data
             alert(result.status)
@@ -175,6 +186,9 @@ export default {
               this.username = "";
               this.password = "";
               this.repassword = "";
+              this.repassword = "";
+              this.validEntry = true;
+              this.selectedLevel = 'select user level';
 
             } else if (result.status === 'duplicate') {
               this.errorMessages.push('username already taken');
@@ -182,14 +196,15 @@ export default {
             } else {
               this.errorMessages.push('registration failed');
             }
+            this.nowLoading = false;
             // this.$router.push('/home')
-          }).catch(function (response) {
+          }).catch((response) => {
               //handle error
+              this.nowLoading = false;
               this.errorMessages.push('registration failed');
               console.log(response)
           });
         }
-        this.nowLoading = false;
       }
     }
   }

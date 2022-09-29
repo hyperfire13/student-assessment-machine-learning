@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
+import Factors from '../views/Factors.vue'
+import Sections from '../views/Sections.vue'
 import FileUploading from '../views/FileUploading.vue'
 import Login from '../Login.vue'
 import Register from '../Register.vue'
@@ -20,6 +22,7 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
+    params: true,
     children: [
       {
         path: '/dashboard',
@@ -30,6 +33,16 @@ const routes = [
         path: '/file-uploading',
         name: '',
         component: FileUploading
+      },
+      {
+        path: '/factors',
+        name: 'Factors',
+        component: Factors
+      },
+      {
+        path: '/sections',
+        name: 'Sections',
+        component: Sections
       },
       {
         path: '/about',

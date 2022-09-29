@@ -51,6 +51,10 @@ export default {
   name: 'Home',
   components: {
     Sidebar
+  },
+  mounted() {
+    
+
   }
 }
 </script>

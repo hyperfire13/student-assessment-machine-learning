@@ -7,7 +7,7 @@
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
-          <p class="login-box-msg text-danger">{{errorMessage}}</p>
+          <!-- <p class="login-box-msg text-danger">{{errorMessage}}</p> -->
 
           <form action="../../index3.html" method="post">
           
@@ -18,6 +18,7 @@
                   <span class="fas fa-envelope"></span>
                 </div>
               </div>
+              <span class="error invalid-feedback">Invalid username</span>
             </div>
             <div class="input-group mb-3">
               <input :class="{ 'is-invalid': loginInvalid }" v-model="password" type="password" class="form-control" placeholder="Password">
@@ -26,6 +27,7 @@
                   <span class="fas fa-lock"></span>
                 </div>
               </div>
+              <span class="error invalid-feedback">Invalid password</span>
             </div>
           </form>
 
@@ -68,32 +70,45 @@ export default {
     },
     methods : {
       login(username, password) {
-        this.nowLoading = true;
         if (username === '' || password === '') {
           this.loginInvalid = 1;
           this.errorMessage = "Username / Password you entered is invalid";
         } else {
+          this.nowLoading = true;
           let formData = new FormData();
           formData.append('username', username);
           formData.append('password', password);
           axios.post(
-            process.env.VUE_APP_ROOT_API + 'login.php',formData, 
+            process.env.VUE_APP_ROOT_API + 'login.php',formData,
             {
               headers: {
                 'Content-Type': 'multipart/form-data', 
                 }
             }
-          ).then(function (response) {
-            var posts = response.data
-            alert(JSON.stringify(posts))
-            // this.$router.push('/home')
-          }).catch(function (response) {
+          ).then((response) => {
+            var result = response.data
+            if (result.status === 'success') {
+              localStorage.setItem('validatorToken', result.token)
+              localStorage.setItem('userId', result.userId)
+              localStorage.setItem('level', result.level)
+              this.$router.push({ name: 'Home', params: {
+                firstname: result.firstName,
+                lastname: result.lastName,
+                level: result.level,
+                userId: result.userId
+                }
+              })
+            } else {
+              this.loginInvalid = 1;
+            }
+            this.nowLoading = false;
+          }).catch((response) => {
             //handle error
+            this.nowLoading = false;
             this.errorMessage = "Something went wrong";
             console.log(response)
           });
         }
-        this.nowLoading = false;
       },
       getUploadedFile(){
         this.file = this.$refs.file.files[0];
