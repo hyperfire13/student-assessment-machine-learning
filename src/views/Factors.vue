@@ -2,66 +2,61 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <!-- left column -->
-        <div class="col-md-6">
-          <div class="card card-primary">
-              <div class="card-header">
-                  <h3 class="card-title">Students' Profile</h3>
+        <div class="card card-primary col-md-8">
+              <div class="card-header ui-sortable-handle" style="cursor: move;">
+                <h3 class="card-title">
+                  Sections
+                </h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form>
-                  <div class="card-body">
-                    <!-- <div class="form-group">
-                        <label>Subject</label>
-                        <select class="form-control" v-model="selectedSubject">
-                          <option selected value="0">Choose Subject</option>
-                          <option  v-bind:key="subject.id" v-for= "subject in subjects" :value="subject.id">{{subject.name}}</option>
-                          </select>
+              <div class="card-body">
+                <ul v-for="(factor, index) in factors" v-bind:key="factor.id" class="todo-list ui-sortable" data-widget="todo-list">
+                  <li>
+                    <!-- todo text -->
+                    <span v-show="index !== selectedIndex" class="text">{{factor.name}}</span>
+                    <ul v-for="(inv, index) in factor.interventions" v-bind:key="index">
+                        <li>
+                            {{inv.name}}
+                        </li>
+                    </ul>
+                    <input :class="{ 'is-invalid': sectionInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="">
+                    <!-- General tools such as edit or delete-->
+                    <div v-show="index !== selectedIndex" class="tools">
+                      <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-edit"></i>
+                      <i @click="deleteFactor(factor.id)" class="fas fa-trash"></i>
                     </div>
-                    <div class="form-group">
-                      <label>Module</label>
-                      <select class="form-control" v-model="selectedModule">
-                        <option selected value="0">Choose Module</option>
-                        <option  v-bind:key="mod.id" v-for="mod in modules" :value="mod.id">{{mod.name}}</option>
-                        </select>
-                    </div> -->
-                    <!-- <div class="form-group">
-                        <label>Section</label>
-                        <select class="form-control" v-model="selectedSection">
-                            <option selected value="0">Choose Section</option>
-                            <option  v-bind:key="section.id" v-for="section in sections" :value="section.id">{{section.name}}</option>
-                          </select>
-                    </div> -->
-                    <div class="form-group">
-                      <div class="form-group">
-                        <input ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
-                      </div>
+                    <div v-if="showEditText === true && index === selectedIndex" class="tools">
+                      <i @click="updateFactor(factor.id, newFactorName)" class="fas fa-check text-success"></i>
+                      <i @click="cancelEdit()" class="fas fa-window-close"></i>
                     </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label>School Year:</label>
-                          <select class="form-control">
-                            <option>choose a school year</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                  <!-- /.card-body -->
-                  <div class="card-footer">
-                  <button type="submit" v-on:click="startAssessment()" class="btn btn-primary float-right">Upload</button>
-                  </div>
-              </form>
-          </div>
-        <!-- /.card -->
-        </div>
+                  </li>
+                </ul>
+                
+              </div>
+              <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <div class="form-group form-inline">
+                <input  :class="{ 'is-invalid': newFactorInvalid }"  type="text" v-model="addFactorName" class="form-control col-md-6" id="" placeholder="">
+                &nbsp;&nbsp;
+                <button @click="addFactor(addFactorName)" type="button" class="btn btn-success float-right"><i class="fas fa-save"></i> Save Factor</button>
+                &nbsp;&nbsp;&nbsp;
+                <button @click="addIntervenstion()" type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Add Intervention</button>
+                </div>
+                <div class="form-group form-inline">
+                    <ul v-for="(inv, index) in interventions" v-bind:key="inv">
+                        <li>
+                            <input  :class="{ 'is-invalid': newInvInvalid }" v-model="inv.name"  type="text" class="form-control col-md-6" id="" placeholder="">
+                            &nbsp;&nbsp;
+                            <button @click="removeIntervention(index)" type="button" class="btn btn-sm btn-danger"><i class="fas fa-minus"></i> </button>
+                        </li>
+                    </ul>
+                
+                &nbsp;&nbsp;
+                
+                </div>
+              </div>
+            </div>
       </div>
     </div>
   </section>
@@ -74,79 +69,157 @@
   import 'admin-lte/dist/js/adminlte.js';
 
   export default {
-    name: 'Factors',
+    name: 'Sections',
     data() {
       return {
-        subjects: [
-          {name: 'English', id: 1},
-          {name: 'Math', id: 2},
-          {name: 'Filipino', id: 3},
-        ],
-        modules: [
-          {name: 'Module 1 (Vocabulary)', id: 1},
-          {name: 'Module 2 (Simple Tenses)', id: 2},
-          {name: 'Module 3 (Preposition)', id: 3},
-        ],
-        sections:[
-          {name: 'Section 1', id: 1},
-          {name: 'Section 2', id: 2},
-          {name: 'Section 3', id: 3},
-        ],
-        file: '',
-        selectedSubject: 0,
-        selectedModule: 0,
-        selectedSection: 1
+        factors: '',
+        nowLoading: true,
+        showEditText: false,
+        newFactorName: '',
+        selectedIndex: '',
+        sectionInvalid: false,
+        newFactorInvalid: false,
+        factorInvalid: false,
+        newInvInvalid: false,
+        interventions: [{name:''}],
+        oldInterventions: ''
       }
     },
     mounted() {
-      // axios.get(process.env.VUE_APP_ROOT_API + 'api/get-source-codes.php')
-      // .then(response => {
-      //   // JSON responses are automatically parsed.
-      //   var posts = response.data
-      //   alert(JSON.stringify(posts))
-      // })
-      // .catch(e => {
+      // get the sections
+      let formData = new FormData();
+      formData.append('userId', localStorage.getItem('userId'));
+      formData.append('token', localStorage.getItem('validatorToken'));
+      axios.post(
+        process.env.VUE_APP_ROOT_API + 'admin/get-factors.php',formData,
+        {
+        headers: {
+        'Content-Type': 'multipart/form-data', 
+        }
+      }
+      ).then((response) => {
+      var result = response.data
+      if (result.status === 'success') {
+        this.factors = result.factors
+        for (let index = 0; index < this.factors.length; index++) {
+          this.factors[index].interventions = JSON.parse(this.factors[index].interventions);
+          alert(JSON.stringify(this.factors[index].interventions))
+        }
         
-      // })
-      
-
-      // fetch('api/get-source-codes.php')
-      //   .then(async response => {
-      //     const data = await response.json();
-
-         
-      //   })
-      //   .catch(error => {
-      //     this.errorMessage = error;
-      //     console.log("There was an error!", error);
-      //   });
+      } else {
+        this.factors = [];
+      }
+      this.nowLoading = false;
+      }).catch((response) => {
+        //handle error
+        this.nowLoading = false;
+        console.log(response)
+      });
     },
     methods : {
-      startAssessment() {
-        // check if subject, module and a section was selected
-        
-        if (this.selectedSection === 0) {
-          alert('Please select a section')
+      addFactor(name) {
+        if (name === '') {
+          this.newFactorInvalid = true;
         } else {
           let formData = new FormData();
-          formData.append('file', this.file);
-          formData.append('selectedSection', this.selectedSection)
-          axios({
-            method: 'post',
-            url: process.env.VUE_APP_ROOT_API + 'save-assessment-result.php',
-            data: formData,
-            config: { headers: {'Content-Type': 'multipart/form-data' }}
-          })
-          .then(function (response) {
-            var posts = response.data
-            alert(JSON.stringify(posts))
-            
-          })
-          .catch(function (response) {
+          this.nowLoading = true;
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
+          formData.append('factorName', name);
+          formData.append('intervention', JSON.stringify(this.interventions));
+          axios.post(
+            process.env.VUE_APP_ROOT_API + 'admin/add-factor.php',formData,
+            {
+            headers: {
+            'Content-Type': 'multipart/form-data', 
+            }
+          }
+          ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            location.reload()
+          }
+          this.nowLoading = false;
+          }).catch((response) => {
             //handle error
+            this.nowLoading = false;
             console.log(response)
           });
         }
+      },
+      removeIntervention (index) {
+        this.interventions.splice(index, 1);
+      },
+      addIntervenstion () {
+        this.interventions.push({name:''});
+      },
+      editSection(index, id, name) {
+        this.selectedIndex = index;
+        this.newSectionName = name;
+        this.showEditText = true;
+      },
+      deleteSection (id) {
+        if (confirm('Are you sure you want to delete this section?')) {
+          let formData = new FormData();
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
+          formData.append('sectionId', id);
+          axios.post(
+            process.env.VUE_APP_ROOT_API + 'admin/delete-section.php',formData,
+            {
+            headers: {
+            'Content-Type': 'multipart/form-data', 
+            }
+          }
+          ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            location.reload()
+          }
+          this.nowLoading = false;
+          }).catch((response) => {
+            //handle error
+            this.nowLoading = false;
+            console.log(response)
+          });
+        } else {
+          // Do nothing!
+          console.log('Thing was not saved to the database.');
+        }
+      },
+      updateSection (id, name) {
+        if (name === '') {
+          this.sectionInvalid = true
+        } else {
+          this.nowLoading = true
+          let formData = new FormData();
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
+          formData.append('sectionId', id);
+          formData.append('sectionName', name);
+          axios.post(
+            process.env.VUE_APP_ROOT_API + 'admin/update-section.php',formData,
+            {
+            headers: {
+            'Content-Type': 'multipart/form-data', 
+            }
+          }
+          ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            location.reload()
+          }
+          this.nowLoading = false;
+          }).catch((response) => {
+            //handle error
+            this.nowLoading = false;
+            console.log(response)
+          });
+        }
+      },
+      cancelEdit () {
+        this.showEditText = false;
+        this.selectedIndex = "";
       },
       getUploadedFile(){
         this.file = this.$refs.file.files[0];

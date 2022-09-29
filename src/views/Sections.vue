@@ -2,22 +2,27 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="card col-md-6">
+        <div class="card card-primary col-md-6">
               <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                  <i class="ion ion-clipboard mr-1"></i>
+                  Sections
                 </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <ul v-for="section in sections" v-bind:key="section.id" class="todo-list ui-sortable" data-widget="todo-list">
+                <ul v-for="(section, index) in sections" v-bind:key="section.id" class="todo-list ui-sortable" data-widget="todo-list">
                   <li>
                     <!-- todo text -->
-                    <span class="text">{{section.name}}</span>
+                    <span v-show="index !== selectedIndex" class="text">{{section.name}}</span>
+                    <input :class="{ 'is-invalid': sectionInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newSectionName" class="form-control" id="" placeholder="">
                     <!-- General tools such as edit or delete-->
-                    <div class="tools">
-                      <i @click="editSection(section.id)" class="fas fa-edit"></i>
+                    <div v-show="index !== selectedIndex" class="tools">
+                      <i @click="editSection(index, section.id, section.name)" class="fas fa-edit"></i>
                       <i @click="deleteSection(section.id)" class="fas fa-trash"></i>
+                    </div>
+                    <div v-if="showEditText === true && index === selectedIndex" class="tools">
+                      <i @click="updateSection(section.id, newSectionName)" class="fas fa-check text-success"></i>
+                      <i @click="cancelEdit()" class="fas fa-window-close"></i>
                     </div>
                   </li>
                 </ul>
@@ -26,7 +31,11 @@
               <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Section</button>
+                <div class="form-group form-inline">
+                <input  :class="{ 'is-invalid': newSectionInvalid }"  type="text" v-model="addSectionName" class="form-control col-md-6" id="" placeholder="">
+                &nbsp;&nbsp;
+                <button @click="addSection(addSectionName)" type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add Section</button>
+                </div>
               </div>
             </div>
       </div>
@@ -45,7 +54,13 @@
     data() {
       return {
         sections: '',
-        nowLoading: true
+        nowLoading: true,
+        showEditText: false,
+        newSectionName: '',
+        selectedIndex: '',
+        sectionInvalid: false,
+        addSectionName: '',
+        newSectionInvalid: false,
       }
     },
     mounted() {
@@ -64,7 +79,6 @@
       var result = response.data
       if (result.status === 'success') {
         this.sections = result.sections
-        alert(JSON.stringify(this.sections))
       } else {
         this.sections = [];
       }
@@ -76,8 +90,103 @@
       });
     },
     methods : {
-      editSection(id) {
-        alert(id)
+      addSection (section) {
+        if (section === '') {
+          this.newSectionInvalid = true
+        } else {
+          this.newSectionInvalid = false
+          this.nowLoading = true;
+          let formData = new FormData();
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
+          formData.append('section', section);
+          axios.post(
+            process.env.VUE_APP_ROOT_API + 'admin/add-section.php',formData,
+            {
+            headers: {
+            'Content-Type': 'multipart/form-data', 
+            }
+          }
+          ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            location.reload()
+          }
+          this.nowLoading = false;
+          }).catch((response) => {
+            //handle error
+            this.nowLoading = false;
+            console.log(response)
+          });
+        }
+      },
+      editSection(index, id, name) {
+        this.selectedIndex = index;
+        this.newSectionName = name;
+        this.showEditText = true;
+      },
+      deleteSection (id) {
+        if (confirm('Are you sure you want to delete this section?')) {
+          let formData = new FormData();
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
+          formData.append('sectionId', id);
+          axios.post(
+            process.env.VUE_APP_ROOT_API + 'admin/delete-section.php',formData,
+            {
+            headers: {
+            'Content-Type': 'multipart/form-data', 
+            }
+          }
+          ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            location.reload()
+          }
+          this.nowLoading = false;
+          }).catch((response) => {
+            //handle error
+            this.nowLoading = false;
+            console.log(response)
+          });
+        } else {
+          // Do nothing!
+          console.log('Thing was not saved to the database.');
+        }
+      },
+      updateSection (id, name) {
+        if (name === '') {
+          this.sectionInvalid = true
+        } else {
+          this.nowLoading = true
+          let formData = new FormData();
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
+          formData.append('sectionId', id);
+          formData.append('sectionName', name);
+          axios.post(
+            process.env.VUE_APP_ROOT_API + 'admin/update-section.php',formData,
+            {
+            headers: {
+            'Content-Type': 'multipart/form-data', 
+            }
+          }
+          ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            location.reload()
+          }
+          this.nowLoading = false;
+          }).catch((response) => {
+            //handle error
+            this.nowLoading = false;
+            console.log(response)
+          });
+        }
+      },
+      cancelEdit () {
+        this.showEditText = false;
+        this.selectedIndex = "";
       },
       getUploadedFile(){
         this.file = this.$refs.file.files[0];
@@ -87,7 +196,7 @@
 </script>
 
 <style>
-  /* @import '~admin-lte/plugins/fontawesome-free/css/all.min.css';
+  @import '~admin-lte/plugins/fontawesome-free/css/all.min.css';
   @import '~admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
-  @import '~admin-lte/dist/css/adminlte.min.css'; */
+  @import '~admin-lte/dist/css/adminlte.min.css';
 </style>

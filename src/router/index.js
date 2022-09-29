@@ -41,7 +41,7 @@ const routes = [
       },
       {
         path: '/sections',
-        name: 'Sections',
+        name: '',
         component: Sections
       },
       {
