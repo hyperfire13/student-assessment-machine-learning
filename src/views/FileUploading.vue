@@ -21,7 +21,7 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label>School Year:</label>
+                          <label>School Year:</label>{{selectedYear}}
                           <select v-model="selectedYear" :class="{ 'is-invalid': sectionInvalid }" class="form-control">
                             <option value="">choose a school year</option>
                             <option v-for="(section, index) in sections" :key="index" v-bind:value="section.id"> {{section.name}}</option>
@@ -72,7 +72,7 @@
       formData.append('userId', localStorage.getItem('userId'));
       formData.append('token', localStorage.getItem('validatorToken'));
       axios.post(
-        process.env.VUE_APP_ROOT_API + 'admin/get-sections.php',formData,
+        process.env.VUE_APP_ROOT_API + 'admin/get-year.php',formData,
         {
         headers: {
         'Content-Type': 'multipart/form-data', 
@@ -111,20 +111,28 @@
         } 
         if (this.sectionInvalid !== true && this.fileInvalid !== true) {
           let formData = new FormData();
+          formData.append('userId', localStorage.getItem('userId'));
+          formData.append('token', localStorage.getItem('validatorToken'));
           formData.append('file', this.file);
           formData.append('selectedYear', this.selectedYear)
           axios({
             method: 'post',
-            url: process.env.VUE_APP_ROOT_API + 'save-assessment-result.php',
+            url: process.env.VUE_APP_ROOT_API + 'admin/start-assessment.php',
             data: formData,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
           })
-          .then(function (response) {
-            var posts = response.data
-            alert(JSON.stringify(posts))
+          .then( (response) => {
+            var result = response.data
+            if (result.status === 'success') {
+              location.reload()
+            }
+            else {
+              alert('error')
+            }
+          this.nowLoading = false;
             
           })
-          .catch(function (response) {
+          .catch((response) => {
             //handle error
             console.log(response)
           });
