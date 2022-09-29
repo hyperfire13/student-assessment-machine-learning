@@ -13,20 +13,22 @@
                 <ul v-for="(factor, index) in factors" v-bind:key="factor.id" class="todo-list ui-sortable" data-widget="todo-list">
                   <li>
                     <!-- todo text -->
-                    <span v-show="index !== selectedIndex" class="text">{{factor.name}}</span>
-                    <ul v-for="(inv, index) in factor.interventions" v-bind:key="index">
+                    <span v-show="index !== selectedIndex" class="text"><b>{{factor.name}}</b></span>
+                    <input :class="{ 'is-invalid': newFactorInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="">
+                    <br>
+                    <ul v-for="(inv, child_index) in factor.interventions" v-bind:key="child_index">
                         <li>
-                            {{inv.name}}
+                            <div v-show="index !== selectedIndex">{{inv.name}}</div>
+                            <input :class="{ 'is-invalid': newInvInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="inv.name" class="form-control" id="" placeholder="">
                         </li>
                     </ul>
-                    <input :class="{ 'is-invalid': sectionInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="">
                     <!-- General tools such as edit or delete-->
                     <div v-show="index !== selectedIndex" class="tools">
                       <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-edit"></i>
                       <i @click="deleteFactor(factor.id)" class="fas fa-trash"></i>
                     </div>
                     <div v-if="showEditText === true && index === selectedIndex" class="tools">
-                      <i @click="updateFactor(factor.id, newFactorName)" class="fas fa-check text-success"></i>
+                      <i @click="updateFactor(factor.id, newFactorName, factor.interventions)" class="fas fa-check text-success"></i>
                       <i @click="cancelEdit()" class="fas fa-window-close"></i>
                     </div>
                   </li>
@@ -81,7 +83,7 @@
         newFactorInvalid: false,
         factorInvalid: false,
         newInvInvalid: false,
-        interventions: [{name:''}],
+        interventions: [],
         oldInterventions: ''
       }
     },
@@ -103,7 +105,6 @@
         this.factors = result.factors
         for (let index = 0; index < this.factors.length; index++) {
           this.factors[index].interventions = JSON.parse(this.factors[index].interventions);
-          alert(JSON.stringify(this.factors[index].interventions))
         }
         
       } else {
@@ -153,19 +154,19 @@
       addIntervenstion () {
         this.interventions.push({name:''});
       },
-      editSection(index, id, name) {
+      editFactor(index, id, name) {
         this.selectedIndex = index;
-        this.newSectionName = name;
+        this.newFactorName = name;
         this.showEditText = true;
       },
-      deleteSection (id) {
-        if (confirm('Are you sure you want to delete this section?')) {
+      deleteFactor (id) {
+        if (confirm('Are you sure you want to delete this factor?')) {
           let formData = new FormData();
           formData.append('userId', localStorage.getItem('userId'));
           formData.append('token', localStorage.getItem('validatorToken'));
-          formData.append('sectionId', id);
+          formData.append('factorId', id);
           axios.post(
-            process.env.VUE_APP_ROOT_API + 'admin/delete-section.php',formData,
+            process.env.VUE_APP_ROOT_API + 'admin/delete-factor.php',formData,
             {
             headers: {
             'Content-Type': 'multipart/form-data', 
@@ -187,18 +188,19 @@
           console.log('Thing was not saved to the database.');
         }
       },
-      updateSection (id, name) {
+      updateFactor (id, name, interventions) {
         if (name === '') {
-          this.sectionInvalid = true
+          this.newFactorInvalid = true
         } else {
           this.nowLoading = true
           let formData = new FormData();
           formData.append('userId', localStorage.getItem('userId'));
           formData.append('token', localStorage.getItem('validatorToken'));
-          formData.append('sectionId', id);
-          formData.append('sectionName', name);
+          formData.append('factorId', id);
+          formData.append('factorName', name);
+          formData.append('interventions', JSON.stringify(interventions));
           axios.post(
-            process.env.VUE_APP_ROOT_API + 'admin/update-section.php',formData,
+            process.env.VUE_APP_ROOT_API + 'admin/update-factor.php',formData,
             {
             headers: {
             'Content-Type': 'multipart/form-data', 
