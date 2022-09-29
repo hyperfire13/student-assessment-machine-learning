@@ -3,12 +3,18 @@ import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import FileUploading from '../views/FileUploading.vue'
 import Login from '../Login.vue'
+import Register from '../Register.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
   {
     path: '/home',
