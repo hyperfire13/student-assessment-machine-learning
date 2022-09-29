@@ -12,53 +12,34 @@
               <!-- form start -->
               <form>
                   <div class="card-body">
-                    <!-- <div class="form-group">
-                        <label>Subject</label>
-                        <select class="form-control" v-model="selectedSubject">
-                          <option selected value="0">Choose Subject</option>
-                          <option  v-bind:key="subject.id" v-for= "subject in subjects" :value="subject.id">{{subject.name}}</option>
-                          </select>
-                    </div>
-                    <div class="form-group">
-                      <label>Module</label>
-                      <select class="form-control" v-model="selectedModule">
-                        <option selected value="0">Choose Module</option>
-                        <option  v-bind:key="mod.id" v-for="mod in modules" :value="mod.id">{{mod.name}}</option>
-                        </select>
-                    </div> -->
-                    <!-- <div class="form-group">
-                        <label>Section</label>
-                        <select class="form-control" v-model="selectedSection">
-                            <option selected value="0">Choose Section</option>
-                            <option  v-bind:key="section.id" v-for="section in sections" :value="section.id">{{section.name}}</option>
-                          </select>
-                    </div> -->
                     <div class="form-group">
                       <div class="form-group">
-                        <input ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <input :class="{ 'is-invalid': fileInvalid }" ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <span class="error invalid-feedback">Please select a file with .CSV format</span>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label>School Year:</label>
-                          <select class="form-control">
-                            <option>choose a school year</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
+                          <select v-model="selectedYear" :class="{ 'is-invalid': sectionInvalid }" class="form-control">
+                            <option value="">choose a school year</option>
+                            <option v-for="(section, index) in sections" :key="index" v-bind:value="section.id"> {{section.name}}</option>
                           </select>
+                          <span class="error invalid-feedback">Please select a school year</span>
                         </div>
                       </div>
 
                     </div>
+                    
                   </div>
+                  
                   <!-- /.card-body -->
                   <div class="card-footer">
                   <button type="submit" v-on:click="startAssessment()" class="btn btn-primary float-right">Upload</button>
                   </div>
               </form>
+              <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
           </div>
         <!-- /.card -->
         </div>
@@ -77,60 +58,61 @@
     name: 'FileUploading',
     data() {
       return {
-        subjects: [
-          {name: 'English', id: 1},
-          {name: 'Math', id: 2},
-          {name: 'Filipino', id: 3},
-        ],
-        modules: [
-          {name: 'Module 1 (Vocabulary)', id: 1},
-          {name: 'Module 2 (Simple Tenses)', id: 2},
-          {name: 'Module 3 (Preposition)', id: 3},
-        ],
-        sections:[
-          {name: 'Section 1', id: 1},
-          {name: 'Section 2', id: 2},
-          {name: 'Section 3', id: 3},
-        ],
+        selectedYear:"",
+        fileInvalid:false,
+        nowLoading: true,
+        sectionInvalid: false,
+        sections: [],
         file: '',
-        selectedSubject: 0,
-        selectedModule: 0,
-        selectedSection: 1
       }
     },
     mounted() {
-      // axios.get(process.env.VUE_APP_ROOT_API + 'api/get-source-codes.php')
-      // .then(response => {
-      //   // JSON responses are automatically parsed.
-      //   var posts = response.data
-      //   alert(JSON.stringify(posts))
-      // })
-      // .catch(e => {
-        
-      // })
+      // get the sections
+      let formData = new FormData();
+      formData.append('userId', localStorage.getItem('userId'));
+      formData.append('token', localStorage.getItem('validatorToken'));
+      axios.post(
+        process.env.VUE_APP_ROOT_API + 'admin/get-sections.php',formData,
+        {
+        headers: {
+        'Content-Type': 'multipart/form-data', 
+        }
+      }
+      ).then((response) => {
+      var result = response.data
+      if (result.status === 'success') {
+        this.sections = result.sections
+      } else {
+        this.sections = [];
+      }
+      this.nowLoading = false;
+      }).catch((response) => {
+        //handle error
+        this.nowLoading = false;
+        console.log(response)
+      });
       
-
-      // fetch('api/get-source-codes.php')
-      //   .then(async response => {
-      //     const data = await response.json();
-
-         
-      //   })
-      //   .catch(error => {
-      //     this.errorMessage = error;
-      //     console.log("There was an error!", error);
-      //   });
     },
     methods : {
       startAssessment() {
         // check if subject, module and a section was selected
-        
-        if (this.selectedSection === 0) {
-          alert('Please select a section')
-        } else {
+        this.sectionInvalid = false;
+        this.fileInvalid = false;
+        if (this.file === "") {
+          this.fileInvalid = true;
+        }
+        if (this.file !== "") {
+          if (this.file.name.split(".").pop() !== 'csv') {
+             this.fileInvalid = true;
+          }
+        }
+        if (this.selectedYear === "") {
+          this.sectionInvalid = true
+        } 
+        if (this.sectionInvalid !== true && this.fileInvalid !== true) {
           let formData = new FormData();
           formData.append('file', this.file);
-          formData.append('selectedSection', this.selectedSection)
+          formData.append('selectedYear', this.selectedYear)
           axios({
             method: 'post',
             url: process.env.VUE_APP_ROOT_API + 'save-assessment-result.php',
