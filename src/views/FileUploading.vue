@@ -29,9 +29,8 @@
                           <span class="error invalid-feedback">Please select a school year</span>
                         </div>
                       </div>
-
                     </div>
-                    
+                    <span v-if="uploadedSuccess === true" class="text-success">Successfully uploaded!</span>
                   </div>
                   
                   <!-- /.card-body -->
@@ -64,6 +63,7 @@
         sectionInvalid: false,
         sections: [],
         file: '',
+        uploadedSuccess: false,
       }
     },
     mounted() {
@@ -110,6 +110,7 @@
           this.sectionInvalid = true
         } 
         if (this.sectionInvalid !== true && this.fileInvalid !== true) {
+          this.nowLoading = true;
           let formData = new FormData();
           formData.append('userId', localStorage.getItem('userId'));
           formData.append('token', localStorage.getItem('validatorToken'));
@@ -124,7 +125,9 @@
           .then( (response) => {
             var result = response.data
             if (result.status === 'success') {
-              location.reload()
+              this.uploadedSuccess = true;
+              this.selectedYear = '';
+              this.$refs.file.value = null;
             }
             else {
               alert('error')
