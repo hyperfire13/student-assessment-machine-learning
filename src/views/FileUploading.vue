@@ -67,33 +67,36 @@
       }
     },
     mounted() {
-      // get the sections
-      let formData = new FormData();
-      formData.append('userId', localStorage.getItem('userId'));
-      formData.append('token', localStorage.getItem('validatorToken'));
-      axios.post(
-        process.env.VUE_APP_ROOT_API + 'admin/get-year.php',formData,
-        {
-        headers: {
-        'Content-Type': 'multipart/form-data', 
-        }
-      }
-      ).then((response) => {
-      var result = response.data
-      if (result.status === 'success') {
-        this.sections = result.sections
-      } else {
-        this.sections = [];
-      }
-      this.nowLoading = false;
-      }).catch((response) => {
-        //handle error
-        this.nowLoading = false;
-        console.log(response)
-      });
+      this.getSchoolYear();
       
     },
     methods : {
+      getSchoolYear() {
+        // get the sections
+        let formData = new FormData();
+        formData.append('userId', localStorage.getItem('userId'));
+        formData.append('token', localStorage.getItem('validatorToken'));
+        axios.post(
+          process.env.VUE_APP_ROOT_API + 'admin/get-year.php',formData,
+          {
+          headers: {
+          'Content-Type': 'multipart/form-data', 
+          }
+        }
+        ).then((response) => {
+        var result = response.data
+        if (result.status === 'success') {
+          this.sections = result.sections
+        } else {
+          this.sections = [];
+        }
+        this.nowLoading = false;
+        }).catch((response) => {
+          //handle error
+          this.nowLoading = false;
+          console.log(response)
+        });
+      },
       startAssessment() {
         // check if subject, module and a section was selected
         this.sectionInvalid = false;
@@ -128,6 +131,7 @@
               this.uploadedSuccess = true;
               this.selectedYear = '';
               this.$refs.file.value = null;
+              this.getSchoolYear();
             }
             else {
               alert('error')

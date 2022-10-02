@@ -13,805 +13,402 @@
 
   <!-- Main content -->
   <section class="content">
-    <div class="row">
-<div class="col-12">
-<div class="card">
-<div class="card-header">
-<h3 class="card-title">Factors Affecting Attrition Rate and Interventions (Top 3)</h3>
-<div class="card-tools">
-<div class="input-group input-group-sm" style="width: 150px;">
-<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-<div class="input-group-append">
-<button type="submit" class="btn btn-default">
-<i class="fas fa-search"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card-body table-responsive p-0">
-<table id="interventionTable"  class="table table-bordered table-hover text-nowrap">
-<thead>
- <tr>
-<th>Factor</th>
-<th>Possible Intervention</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Intermediate Programming (Java)</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>Purposive Communication</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>Fundamentals of Programming (C++)</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<!-- <tr>
-<td>Mathematics in the Modern World</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>PARENT'S MONTHLY INCOME</td>
-<td>
-  <ul>
-    <li>Pasig City Scholarship Program</li>
-    <li>Connectivity Allowance</li>
-    <li>Luis Co Chi Kiat Foundation</li>
-    <li>CHED Scholarship - Tertiary Education Subsidy-Tulong Dunong Program (TES-TDP)(7,500/ sem)</li>
-    <li>Tertiary Education Subsidy (4Ps Awardee) (20,000/sem)</li>
-  </ul>
-</td>
-</tr> -->
-<!-- <tr>
-<td>RESIDENCY CATEGORY</td>
-<td><ul>
-    <li>Start early commute</li>
-    <li>Strict Time management to avoid tardiness</li>
-    <li>Find a place to stay near the university</li>
-  </ul></td>
-</tr> -->
-<tr>
-<td>175</td>
-<td>Mike Doe</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-</div>
-    <section class="content">
-      <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <!-- <h3 class="card-title">Students' Profile</h3> -->
-                <h3 class="card-title"> 
-                  List of incoming second year College Student’s Progression
-                  <button type="button" class="btn btn-info">
-                    <i class="fas fa-download"></i>
-                  </button>
-                </h3>
-              
-                <div class="card-tools">
-                  
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-inline" >
-                        <label class="" for="autoSizingCheck">
-                          SY: &nbsp;
-                        </label>
-                        <select class="form-control">
-                            <option>2022-2023</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        
-                      </div>
-                    </div>
-                     <div class="col-md-6">
-                      <div class="form-inline" >
-                        <select class="form-control" style="width: 190px;">
-                          <option>BSIT-1D</option>
-                          <option>BSIT-1A</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 500px;">
-                <div class="text-center">
-                  <h4 >College of Computer Studies</h4>
-                  <h5 class="card-text">Bachelor of Science in Information Technology (BSIT-1D SY 2022-2023)</h5>
-                </div>
-                
-                <table class="table table-head-fixed text-nowrap table-bordered text-center">
-                  <thead>
-                    <tr>
-                      <th>STUDENT ID</th>
-                      <th>SECTION</th>
-                      <th>AGE</th>
-                      <th>GENDER</th>
-                      <th>RESIDENCY CATEGORY</th>
-                      <th>PARENT'S MONTHLY INCOME</th>
-                      <th>LAST SCHOOL ATTENDED(High School)</th>
-                      <th>TRACK</th>
-                      <th>GWA Grade 11 and 12 </th>
-                      <th>MATHEMATICS IN THE MODERN WORLD</th>
-                      <th>INTRODUCTION TO COMPUTING</th>
-                      <th>FUNDAMENTALS OF PROGRAMMING (C++)</th>
-                      <th>PURPOSIVE COMMUNICATION</th>
-                      <th>INTERMEDIATE PROGRAMMING(Java)</th>
-                      <th>DISCRETE MATHEMATICS</th>
-                      <th>MEMBER OF ANY SCHOOl ORGANIZATION</th>
-                      <th>WILL CONTINUE?</th>
-                      <!-- <th>Student</th> -->
-                      <!-- <th>Competency</th>
-                      <th colspan="5">Module 1 (Simple Tenses)</th>
-                      <th colspan="5">Module 2(Punctation)</th>
-                      <th colspan="5">Module 3(Vocabulary)</th> -->
-                      <!-- <th colspan="5">Module 4(Grammar)</th>
-                      <th colspan="5">Module 5(Writing)</th>
-                      <th colspan="5">Module 6(Writing)</th>
-                      <th colspan="5">Module 7(Writing)</th>
-                      <th colspan="5">Module 8(Vocab...)</th>
-                      <th colspan="5">Module 9(Vocab...)</th>
-                      <th colspan="5">Module 10(Vocab...)</th> -->
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>21-01069</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Private</td>
-                      <td>Others</td>
-                      <td>81 - 84</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>Yes</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-01100</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>85 - 89</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>below 3.00</td>
-                      <td>below 3.00</td>
-                      <td>No</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>21-01095</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>85 - 89</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>Yes</td>
-                      <td class="bg-success">Continue</td>
-                    </tr>
-                    <tr>
-                      <td>21-00951</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>19,041.00 - 38,080.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>85 - 89</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>No</td>
-                      <td class="bg-success">Continue</td>
-                    </tr>
-                    <tr>
-                      <td>21-00943</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Private</td>
-                      <td>STEM</td>
-                      <td>90 - 95</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>No</td>
-                      <td class="bg-success">Continue</td>
-                    </tr>
-                    <tr>
-                      <td>21-00922</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>below 9,520.00</td>
-                      <td>Private</td>
-                      <td>TVL</td>
-                      <td>81 - 84</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>below 3.00</td>
-                      <td>below 3.00</td>
-                      <td>No</td>
-                      <td class="bg-danger">Stop</td>
-                    </tr>
-                    <tr>
-                      <td>21-00965</td>
-                      <td>BSIT-1D</td>
-                      <td>22</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>below 9,520.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>90 - 95</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>No</td>
-                      <td class="bg-success">Continue</td>
-                    </tr>
-                    <tr>
-                      <td>21-00661</td>
-                      <td>BSIT-1A</td>
-                      <td>19</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Private</td>
-                      <td>TVL</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00693</td>
-                      <td>BSIT-1A</td>
-                      <td>19</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>TVL</td>
-                      <td>75 - 80</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00185</td>
-                      <td>BSIT-1A</td>
-                      <td>19</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>STEM</td>
-                      <td>90 - 95</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00421</td>
-                      <td>BSIT-1A</td>
-                      <td>19</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Private</td>
-                      <td>STEM</td>
-                      <td>85 - 89</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>below 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-      </div>
-      
-
-        <!-- /.row -->
-      <!-- /.container-fluid -->
-  </section>
-    
-      <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <!-- <h3 class="card-title">Students' Profile</h3> -->
-                <h3 class="card-title"> 
-                  List of incoming second year College Student’s Progression
-                  <button type="button" class="btn btn-info">
-                    <i class="fas fa-download"></i>
-                  </button>
-                </h3>
-              
-                <div class="card-tools">
-                  
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="input-group input-group-sm" >
-                        <select class="form-control">
-                            <option>choose a school year</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        
-                      </div>
-                    </div>
-                     <div class="col-md-6">
-                      <div class="input-group input-group-sm" >
-                        <select class="form-control" style="width: 190px;">
-                            <option>choose a section</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0" style="height: 500px;">
-                <table class="table table-head-fixed text-nowrap table-bordered text-center">
-                  <thead>
-                    <tr>
-                      <th>STUDENT ID</th>
-                      <th>SECTION</th>
-                      <th>AGE</th>
-                      <th>GENDER</th>
-                      <th>RESIDENCY CATEGORY</th>
-                      <th>PARENT'S MONTHLY INCOME</th>
-                      <th>LAST SCHOOL ATTENDED(High School)</th>
-                      <th>TRACK</th>
-                      <th>GWA Grade 11 and 12 </th>
-                      <th>MATHEMATICS IN THE MODERN WORLD</th>
-                      <th>INTRODUCTION TO COMPUTING</th>
-                      <th>FUNDAMENTALS OF PROGRAMMING (C++)</th>
-                      <th>PURPOSIVE COMMUNICATION</th>
-                      <th>INTERMEDIATE PROGRAMMING(Java)</th>
-                      <th>DISCRETE MATHEMATICS</th>
-                      <th>MEMBER OF ANY SCHOOl ORGANIZATION</th>
-                      <th>WILL CONTINUE?</th>
-                      <!-- <th>Student</th> -->
-                      <!-- <th>Competency</th>
-                      <th colspan="5">Module 1 (Simple Tenses)</th>
-                      <th colspan="5">Module 2(Punctation)</th>
-                      <th colspan="5">Module 3(Vocabulary)</th> -->
-                      <!-- <th colspan="5">Module 4(Grammar)</th>
-                      <th colspan="5">Module 5(Writing)</th>
-                      <th colspan="5">Module 6(Writing)</th>
-                      <th colspan="5">Module 7(Writing)</th>
-                      <th colspan="5">Module 8(Vocab...)</th>
-                      <th colspan="5">Module 9(Vocab...)</th>
-                      <th colspan="5">Module 10(Vocab...)</th> -->
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>21-00357</td>
-                      <td>BSIT-2A</td>
-                      <td>19</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>STEM</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00285</td>
-                      <td>BSIT-2A</td>
-                      <td>18</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>below 9,520.00</td>
-                      <td>Public</td>
-                      <td>STEM</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.49 - 1.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-01024</td>
-                      <td>BSIT-2A</td>
-                      <td>18</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>TVL</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-01100</td>
-                      <td>BSIT-2A</td>
-                      <td>22</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>75 - 80</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>below 3.00</td>
-                      <td>below 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>21-00922</td>
-                      <td>BSIT-2A</td>
-                      <td>22</td>
-                      <td>Male</td>
-                      <td>PR</td>
-                      <td>below 9,520.00</td>
-                      <td>Private</td>
-                      <td>TVL</td>
-                      <td>81 - 84</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>1.49 - 1.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>below 3.00</td>
-                      <td>below 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>21-00095</td>
-                      <td>BSIT-2A</td>
-                      <td>19</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>19,041.00 - 38,080.00</td>
-                      <td>Private</td>
-                      <td>STEM</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00943</td>
-                      <td>BSIT-2A</td>
-                      <td>22</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>Private</td>
-                      <td>STEM</td>
-                      <td>90 - 95</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00960</td>
-                      <td>BSIT-2A</td>
-                      <td>22</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>below 9,520.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>85 - 89</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>21-00955</td>
-                      <td>BSIT-2A</td>
-                      <td>22</td>
-                      <td>Female</td>
-                      <td>PR</td>
-                      <td>below 9,520.00</td>
-                      <td>Public</td>
-                      <td>Others</td>
-                      <td>85 - 89</td>
-                      <td>2.49 - 2.00</td>
-                      <td>1.99  - 1.50</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.50 - 3.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>below 3.00</td>
-                      <td>NO</td>
-                      <td class="bg-danger">NO</td>
-                    </tr>
-                    <tr>
-                      <td>20-00539</td>
-                      <td>BSIT-2A</td>
-                      <td>Pasig</td>
-                      <td>AMA</td>
-                      <td>TVL</td>
-                      <td>Male</td>
-                      <td>20</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>90 - 95</td>
-                      <td>2.49 - 2.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>NO</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                    <tr>
-                      <td>20-00935</td>
-                      <td>BSIT-2A</td>
-                      <td>Pasig</td>
-                      <td>Others</td>
-                      <td>TVL</td>
-                      <td>Female</td>
-                      <td>20</td>
-                      <td>9,520.00 - 19,040.00</td>
-                      <td>90 - 95</td>
-                      <td>1.49 - 1.00</td>
-                      <td>2.49 - 2.00</td>
-                      <td>YES</td>
-                      <td class="bg-success">YES</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-      </div>
-      <div class="row">
-<div class="col-12">
-<div class="card">
-<div class="card-header">
-<h3 class="card-title">Factors Affecting Attrition Rate and Interventions</h3>
-<div class="card-tools">
-<div class="input-group input-group-sm" style="width: 150px;">
-<input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-<div class="input-group-append">
-<button type="submit" class="btn btn-default">
-<i class="fas fa-search"></i>
-</button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card-body table-responsive p-0">
-<table id="interventionTable"  class="table table-bordered table-hover text-nowrap">
-<thead>
- <tr>
-<th>Factor</th>
-<th>Possible Intervention</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Purposive Communication</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>Intermediate Programming (Java)</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>Fundamentals of Programming (C++)</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>Mathematics in the Modern World</td>
-<td>Student Teacher Coaching</td>
-</tr>
-<tr>
-<td>PARENT'S MONTHLY INCOME</td>
-<td>
-  <ul>
-    <li>Pasig City Scholarship Program</li>
-    <li>Connectivity Allowance</li>
-    <li>Luis Co Chi Kiat Foundation</li>
-    <li>CHED Scholarship - Tertiary Education Subsidy-Tulong Dunong Program (TES-TDP)(7,500/ sem)</li>
-    <li>Tertiary Education Subsidy (4Ps Awardee) (20,000/sem)</li>
-  </ul>
-</td>
-</tr>
-<tr>
-<td>RESIDENCY CATEGORY</td>
-<td><ul>
-    <li>Start early commute</li>
-    <li>Strict Time management to avoid tardiness</li>
-    <li>Find a place to stay near the university</li>
-  </ul></td>
-</tr>
-<tr>
-<td>175</td>
-<td>Mike Doe</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-        <!-- /.row -->
-      <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
-
-  
-  
-
-  <section class="content">
-    <div class="card">
-      <div class="card-header border-0">
-        <div class="d-flex justify-content-between">
-          <h3 class="card-title">Sales</h3>
-          <a href="javascript:void(0);">View Report</a>
-        </div>
+    <div class="card card-primary card-tabs">
+      <div class="card-header p-0 pt-1">
+        <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Results Table</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Top 3 Factors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Attrition Rate</a>
+          </li>
+        </ul>
       </div>
       <div class="card-body">
-        <div class="d-flex">
-          <p class="d-flex flex-column">
-            <span class="text-bold text-lg">$18,230.00</span>
-            <span>Sales Over Time</span>
-          </p>
-          <p class="ml-auto d-flex flex-column text-right">
-            <span class="text-success">
-              <i class="fas fa-arrow-up"></i> 33.1%
-            </span>
-            <span class="text-muted">Since last month</span>
-          </p>
-        </div>
-        <!-- /.d-flex -->
-
-        <div class="position-relative mb-4"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-          <canvas id="sales-chart" height="200" style="display: block; width: 487px; height: 200px;" width="487" class="chartjs-render-monitor"></canvas>
-        </div>
-
-        <div class="d-flex flex-row justify-content-end">
-          <span class="mr-2">
-            <i class="fas fa-square text-primary"></i> This year
-          </span>
-
-          <span>
-            <i class="fas fa-square text-gray"></i> Last year
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- /.content -->
-
-  <section class="content">
+        <div class="tab-content" id="custom-tabs-one-tabContent">
+          <div class="tab-pane fade active show" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+            <!-- results table -->
+            <section class="content">
+              <div class="row">
+                  <div class="col-12">
+                    <div class="card">
+                      <div class="card-header">
+                        <!-- <h3 class="card-title">Students' Profile</h3> -->
+                        <h3 class="card-title"> 
+                          List of incoming second year College Student’s Progression
+                          <button type="button" class="btn btn-info">
+                            <i class="fas fa-download"></i>
+                          </button>
+                        </h3>
+                      
+                        <div class="card-tools">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-inline" >
+                                <label class="" for="autoSizingCheck">
+                                  SY: &nbsp;
+                                </label>
+                                <select class="form-control">
+                                    <option>2022-2023</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-inline" >
+                                <select class="form-control" style="width: 190px;">
+                                  <option>BSIT-1D</option>
+                                  <option>BSIT-1A</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="card-body table-responsive p-0" style="height: 500px;">
+                        <div class="text-center">
+                          <h4 >College of Computer Studies</h4>
+                          <h5 class="card-text">Bachelor of Science in Information Technology (BSIT-1D SY 2022-2023)</h5>
+                        </div>
+                        <table class="table table-hover table-head-fixed text-nowrap table-bordered text-center">
+                          <thead>
+                            <tr>
+                              <th>STUDENT ID</th>
+                              <th>SECTION</th>
+                              <th>AGE</th>
+                              <th>GENDER</th>
+                              <th>RESIDENCY CATEGORY</th>
+                              <th>PARENT'S MONTHLY INCOME</th>
+                              <th>LAST SCHOOL ATTENDED(High School)</th>
+                              <th>TRACK</th>
+                              <th>GWA Grade 11 and 12 </th>
+                              <th>MATHEMATICS IN THE MODERN WORLD</th>
+                              <th>INTRODUCTION TO COMPUTING</th>
+                              <th>FUNDAMENTALS OF PROGRAMMING (C++)</th>
+                              <th>PURPOSIVE COMMUNICATION</th>
+                              <th>INTERMEDIATE PROGRAMMING(Java)</th>
+                              <th>DISCRETE MATHEMATICS</th>
+                              <th>MEMBER OF ANY SCHOOl ORGANIZATION</th>
+                              <th>WILL CONTINUE?</th>
+                              <!-- <th>Student</th> -->
+                              <!-- <th>Competency</th>
+                              <th colspan="5">Module 1 (Simple Tenses)</th>
+                              <th colspan="5">Module 2(Punctation)</th>
+                              <th colspan="5">Module 3(Vocabulary)</th> -->
+                              <!-- <th colspan="5">Module 4(Grammar)</th>
+                              <th colspan="5">Module 5(Writing)</th>
+                              <th colspan="5">Module 6(Writing)</th>
+                              <th colspan="5">Module 7(Writing)</th>
+                              <th colspan="5">Module 8(Vocab...)</th>
+                              <th colspan="5">Module 9(Vocab...)</th>
+                              <th colspan="5">Module 10(Vocab...)</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>21-01069</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Male</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Private</td>
+                              <td>Others</td>
+                              <td>81 - 84</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.50 - 3.00</td>
+                              <td>Yes</td>
+                              <td class="bg-success">YES</td>
+                            </tr>
+                            <tr>
+                              <td>21-01100</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Male</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Public</td>
+                              <td>Others</td>
+                              <td>85 - 89</td>
+                              <td>2.50 - 3.00</td>
+                              <td>2.50 - 3.00</td>
+                              <td>2.50 - 3.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>below 3.00</td>
+                              <td>below 3.00</td>
+                              <td>No</td>
+                              <td class="bg-danger">NO</td>
+                            </tr>
+                            <tr>
+                              <td>21-01095</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Female</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Public</td>
+                              <td>Others</td>
+                              <td>85 - 89</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.50 - 3.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.50 - 3.00</td>
+                              <td>Yes</td>
+                              <td class="bg-success">Continue</td>
+                            </tr>
+                            <tr>
+                              <td>21-00951</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Male</td>
+                              <td>PR</td>
+                              <td>19,041.00 - 38,080.00</td>
+                              <td>Public</td>
+                              <td>Others</td>
+                              <td>85 - 89</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.50 - 3.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.50 - 3.00</td>
+                              <td>No</td>
+                              <td class="bg-success">Continue</td>
+                            </tr>
+                            <tr>
+                              <td>21-00943</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Female</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Private</td>
+                              <td>STEM</td>
+                              <td>90 - 95</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.50 - 3.00</td>
+                              <td>No</td>
+                              <td class="bg-success">Continue</td>
+                            </tr>
+                            <tr>
+                              <td>21-00922</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Male</td>
+                              <td>PR</td>
+                              <td>below 9,520.00</td>
+                              <td>Private</td>
+                              <td>TVL</td>
+                              <td>81 - 84</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.50 - 3.00</td>
+                              <td>below 3.00</td>
+                              <td>below 3.00</td>
+                              <td>No</td>
+                              <td class="bg-danger">Stop</td>
+                            </tr>
+                            <tr>
+                              <td>21-00965</td>
+                              <td>BSIT-1D</td>
+                              <td>22</td>
+                              <td>Female</td>
+                              <td>PR</td>
+                              <td>below 9,520.00</td>
+                              <td>Public</td>
+                              <td>Others</td>
+                              <td>90 - 95</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.49 - 2.00</td>
+                              <td>2.50 - 3.00</td>
+                              <td>No</td>
+                              <td class="bg-success">Continue</td>
+                            </tr>
+                            <tr>
+                              <td>21-00661</td>
+                              <td>BSIT-1A</td>
+                              <td>19</td>
+                              <td>Female</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Private</td>
+                              <td>TVL</td>
+                              <td>90 - 95</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>NO</td>
+                              <td class="bg-success">YES</td>
+                            </tr>
+                            <tr>
+                              <td>21-00693</td>
+                              <td>BSIT-1A</td>
+                              <td>19</td>
+                              <td>Female</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Public</td>
+                              <td>TVL</td>
+                              <td>75 - 80</td>
+                              <td>1.49 - 1.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.49 - 1.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>NO</td>
+                              <td class="bg-success">YES</td>
+                            </tr>
+                            <tr>
+                              <td>21-00185</td>
+                              <td>BSIT-1A</td>
+                              <td>19</td>
+                              <td>Male</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Public</td>
+                              <td>STEM</td>
+                              <td>90 - 95</td>
+                              <td>1.49 - 1.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.49 - 1.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>NO</td>
+                              <td class="bg-success">YES</td>
+                            </tr>
+                            <tr>
+                              <td>21-00421</td>
+                              <td>BSIT-1A</td>
+                              <td>19</td>
+                              <td>Male</td>
+                              <td>PR</td>
+                              <td>9,520.00 - 19,040.00</td>
+                              <td>Private</td>
+                              <td>STEM</td>
+                              <td>85 - 89</td>
+                              <td>1.99  - 1.50</td>
+                              <td>2.49 - 2.00</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>1.99  - 1.50</td>
+                              <td>below 3.00</td>
+                              <td>NO</td>
+                              <td class="bg-success">YES</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                  </div>
+              </div>
+            </section>
+          </div>
+          <div class="tab-pane fade " id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
+              <!-- factors -->
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Factors Affecting Attrition Rate and Interventions (Top 3)</h3>
+                    <div class="card-tools">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-inline" >
+                                <label class="" for="autoSizingCheck">
+                                  SY: &nbsp;
+                                </label>
+                                <select class="form-control">
+                                    <option>2022-2023</option>
+                                    <option>option 2</option>
+                                    <option>option 3</option>
+                                    <option>option 4</option>
+                                    <option>option 5</option>
+                                  </select>
+                                
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-inline" >
+                                <select class="form-control" style="width: 190px;">
+                                  <option>BSIT-1D</option>
+                                  <option>BSIT-1A</option>
+                                  <option>option 2</option>
+                                  <option>option 3</option>
+                                  <option>option 4</option>
+                                  <option>option 5</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+                  <div class="card-body table-responsive p-0">
+                    <table id="interventionTable"  class="table table-bordered table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                          <th>Factor</th>
+                          <th>Possible Intervention</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Intermediate Programming (Java)</td>
+                          <td>Student Teacher Coaching</td>
+                        </tr>
+                        <tr>
+                          <td>Purposive Communication</td>
+                          <td>Student Teacher Coaching</td>
+                        </tr>
+                        <tr>
+                          <td>Fundamentals of Programming (C++)</td>
+                          <td>Student Teacher Coaching</td>
+                        </tr>
+                        <tr>
+                          <td>175</td>
+                          <td>Mike Doe</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
+             <section class="content">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">
@@ -820,49 +417,45 @@
             <i class="fas fa-download"></i>
           </button>
         </h3>
-        
         <div class="card-tools">
-          <select class="form-control" style="width: 190px;">
-            <option>choose a section</option>
-            <option>option 2</option>
-            <option>option 3</option>
-            <option>option 4</option>
-            <option>option 5</option>
-          </select>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-inline" >
+                <label class="" for="autoSizingCheck">
+                  SY: &nbsp;
+                </label>
+                <select class="form-control">
+                    <option>2022-2023</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                    <option>option 5</option>
+                  </select>
+                
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-inline" >
+                <select class="form-control" style="width: 190px;">
+                  <option>BSIT-1D</option>
+                  <option>BSIT-1A</option>
+                  <option>option 2</option>
+                  <option>option 3</option>
+                  <option>option 4</option>
+                  <option>option 5</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- /.card-header -->
       <div class="card-body">
         <div class="row">
-          <!-- <div class="col-md-3">
-            <div class="form-group">
-              <label>Section:</label>
-              <select class="form-control">
-                <option>Section 1</option>
-                <option>option 2</option>
-                <option>option 3</option>
-                <option>option 4</option>
-                <option>option 5</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Module:</label>
-              <select class="form-control">
-                <option>Simple Tenses</option>
-                <option>option 2</option>
-                <option>option 3</option>
-                <option>option 4</option>
-                <option>option 5</option>
-              </select>
-            </div>
-          </div> -->
           <div class="col-md-4">
             <div class="chart-responsive">
               <canvas id="pieChart" height="150"></canvas>
             </div>
-            <!-- ./chart-responsive -->
           </div>
-          <!-- /.col -->
           <div class="col-md-3">
             <ul class="chart-legend clearfix">
               <li><i class="far fa-circle text-warning"></i> Total Number of Students :160</li>
@@ -870,15 +463,18 @@
               <li><i class="far fa-circle text-danger"></i> Students who will stop :  7.5% (12 students)</li>
             </ul>
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
       </div>
-      <!-- /.card-body -->
-
-      <!-- /.footer -->
     </div>
   </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /.content -->
+
+  
 
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog modal-xl">
@@ -974,95 +570,6 @@
       //-----------------
       // - END PIE CHART -
       //-----------------y
-
-      $(function () {
-        'use strict';
-
-        const ticksStyle = {
-          fontColor: '#495057',
-          fontStyle: 'bold'
-        };
-
-        const mode = 'index';
-        const intersect = true;
-
-        const $salesChart = $('#sales-chart');
-        // eslint-disable-next-line no-unused-vars
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const salesChart = new Chart($salesChart, {
-          type: 'bar',
-          data: {
-            labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
-            datasets: [
-              {
-                backgroundColor: '#007bff',
-                borderColor: '#007bff',
-                data: [1000, 2000, 3000, 2500, 2700, 2500, 3000]
-              },
-              {
-                backgroundColor: '#ced4da',
-                borderColor: '#ced4da',
-                data: [700, 1700, 2700, 2000, 1800, 1500, 2000]
-              }
-            ]
-          },
-          options: {
-            maintainAspectRatio: false,
-            tooltips: {
-              mode: mode,
-              intersect: intersect
-            },
-            hover: {
-              mode: mode,
-              intersect: intersect
-            },
-            legend: {
-              display: false
-            },
-            scales: {
-              yAxes: [
-                {
-                  // display: false,
-                  gridLines: {
-                    display: true,
-                    lineWidth: '4px',
-                    color: 'rgba(0, 0, 0, .2)',
-                    zeroLineColor: 'transparent'
-                  },
-                  ticks: $.extend(
-                    {
-                      beginAtZero: true,
-
-                      // Include a dollar sign in the ticks
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore
-                      callback: function (value) {
-                        if (value >= 1000) {
-                          value /= 1000;
-                          value += 'k';
-                        }
-
-                        return '$' + value;
-                      }
-                    },
-                    ticksStyle
-                  )
-                }
-              ],
-              xAxes: [
-                {
-                  display: true,
-                  gridLines: {
-                    display: false
-                  },
-                  ticks: ticksStyle
-                }
-              ]
-            }
-          }
-        });
-      });
     },
     methods: {
      showCompetency() {
