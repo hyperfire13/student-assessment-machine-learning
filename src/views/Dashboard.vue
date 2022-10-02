@@ -17,18 +17,19 @@
       <div class="card-header p-0 pt-1">
         <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Results Table</a>
+            <a v-on:click="switchTab(1)" class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Results Table</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Top 3 Factors</a>
+            <a v-on:click="switchTab(2)" class="nav-link " id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Top 3 Factors</a>
           </li>
-          <li class="nav-item">
+          <li v-on:click="switchTab(3)" class="nav-item">
             <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Attrition Rate</a>
           </li>
         </ul>
       </div>
       <div class="card-body">
         <div class="tab-content" id="custom-tabs-one-tabContent">
+          <!-- results tab  -->
           <div class="tab-pane fade active show" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
             <!-- results table -->
             <section class="content">
@@ -53,11 +54,12 @@
                                 </label>
                                 <select class="form-control">
                                     <option>2022-2023</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
+                                    
                                   </select>
+                                <select v-model="selectedYear"  class="form-control">
+                                  <option value="">choose a school year</option>
+                                  <option v-for="(section, index) in sections" :key="index" v-bind:value="section.id"> {{section.name}}</option>
+                                </select>
                                 
                               </div>
                             </div>
@@ -66,10 +68,6 @@
                                 <select class="form-control" style="width: 190px;">
                                   <option>BSIT-1D</option>
                                   <option>BSIT-1A</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
                                 </select>
                               </div>
                             </div>
@@ -336,6 +334,7 @@
               </div>
             </section>
           </div>
+          <!-- factors tab -->
           <div class="tab-pane fade " id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
               <!-- factors -->
             <div class="row">
@@ -408,74 +407,71 @@
             </div>
           </div>
           <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-             <section class="content">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">
-          Possible Attrition Rate
-          <button type="button" class="btn btn-info btn-sm">
-            <i class="fas fa-download"></i>
-          </button>
-        </h3>
-        <div class="card-tools">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-inline" >
-                <label class="" for="autoSizingCheck">
-                  SY: &nbsp;
-                </label>
-                <select class="form-control">
-                    <option>2022-2023</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
-                  </select>
-                
+            <section class="content">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  Possible Attrition Rate
+                  <button type="button" class="btn btn-info btn-sm">
+                    <i class="fas fa-download"></i>
+                  </button>
+                </h3>
+                <div class="card-tools">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-inline" >
+                        <label class="" for="autoSizingCheck">
+                          SY: &nbsp;
+                        </label>
+                        <select class="form-control">
+                            <option>2022-2023</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                            <option>option 5</option>
+                          </select>
+                        
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-inline" >
+                        <select class="form-control" style="width: 190px;">
+                          <option>BSIT-1D</option>
+                          <option>BSIT-1A</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                          <option>option 5</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="chart-responsive">
+                      <canvas id="pieChart" height="150"></canvas>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <ul class="chart-legend clearfix">
+                      <li><i class="far fa-circle text-warning"></i> Total Number of Students :160</li>
+                      <li><i class="far fa-circle text-success"></i> Students who will continue : 92.5% (148 students)</li>
+                      <li><i class="far fa-circle text-danger"></i> Students who will stop :  7.5% (12 students)</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-inline" >
-                <select class="form-control" style="width: 190px;">
-                  <option>BSIT-1D</option>
-                  <option>BSIT-1A</option>
-                  <option>option 2</option>
-                  <option>option 3</option>
-                  <option>option 4</option>
-                  <option>option 5</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="chart-responsive">
-              <canvas id="pieChart" height="150"></canvas>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <ul class="chart-legend clearfix">
-              <li><i class="far fa-circle text-warning"></i> Total Number of Students :160</li>
-              <li><i class="far fa-circle text-success"></i> Students who will continue : 92.5% (148 students)</li>
-              <li><i class="far fa-circle text-danger"></i> Students who will stop :  7.5% (12 students)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            </section>
           </div>
         </div>
       </div>
     </div>
   </section>
   <!-- /.content -->
-
-  
-
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -532,9 +528,17 @@
   import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
   import 'admin-lte/dist/js/adminlte.js';
   import 'admin-lte/plugins/chart.js/Chart.min.js';
+  import axios from 'axios';
   export default {
     name: 'Dashboard',
+     data() {
+      return {
+        selectedYear:"",
+        sections: [],
+      }
+    },
     mounted() {
+      this.getSchoolYear();
       //-------------
       // - PIE CHART -
       //-------------
@@ -572,90 +576,146 @@
       //-----------------y
     },
     methods: {
-     showCompetency() {
-    
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    $('#modal-default').modal('show')
-    setTimeout(function () {
-      $(function () {
-        'use strict';
-        const ticksStyle = {
-          fontColor: '#495057',
-          fontStyle: 'bold'
-        };
-
-        const mode = 'index';
-        const intersect = true;
-
-        const $competencyChart = $('#competency-chart');
-        // eslint-disable-next-line no-unused-vars
+      showCompetency() {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const competencyChart = new Chart($competencyChart, {
-          type: 'bar',
-          data: {
-            labels: ['Module 1 (Simple Tenses) 47%', 'Module 2 (Punctation) 88%', 'Module 3 (Vocabulary) 67%'],
-            datasets: [
-              {
-                label: 'Average Percentage',
-                backgroundColor: ['#DC3545', '#28A745', '#28A745'],
-                borderColor: '#007bff',
-                data: [47, 88, 67]
-              }
-            ]
-          },
-          options: {
-            maintainAspectRatio: false,
-            tooltips: {
-              mode: mode,
-              intersect: intersect
-            },
-            hover: {
-              mode: mode,
-              intersect: intersect
-            },
-            legend: {
-              display: false
-            },
-            scales: {
-              yAxes: [
-                {
-                  // display: false,
-                  gridLines: {
-                    display: true,
-                    lineWidth: '4px',
-                    color: 'rgba(0, 0, 0, .2)',
-                    zeroLineColor: 'transparent'
-                  },
-                  ticks: $.extend(
+        $('#modal-default').modal('show')
+        setTimeout(function () {
+          $(function () {
+            'use strict';
+            const ticksStyle = {
+              fontColor: '#495057',
+              fontStyle: 'bold'
+            };
+
+            const mode = 'index';
+            const intersect = true;
+
+            const $competencyChart = $('#competency-chart');
+            // eslint-disable-next-line no-unused-vars
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            const competencyChart = new Chart($competencyChart, {
+              type: 'bar',
+              data: {
+                labels: ['Module 1 (Simple Tenses) 47%', 'Module 2 (Punctation) 88%', 'Module 3 (Vocabulary) 67%'],
+                datasets: [
+                  {
+                    label: 'Average Percentage',
+                    backgroundColor: ['#DC3545', '#28A745', '#28A745'],
+                    borderColor: '#007bff',
+                    data: [47, 88, 67]
+                  }
+                ]
+              },
+              options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                  mode: mode,
+                  intersect: intersect
+                },
+                hover: {
+                  mode: mode,
+                  intersect: intersect
+                },
+                legend: {
+                  display: false
+                },
+                scales: {
+                  yAxes: [
                     {
-                      beginAtZero: true,
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore
-                      callback: function (value) {
-                        return value + '%';
-                      }
-                    },
-                    ticksStyle
-                  )
+                      // display: false,
+                      gridLines: {
+                        display: true,
+                        lineWidth: '4px',
+                        color: 'rgba(0, 0, 0, .2)',
+                        zeroLineColor: 'transparent'
+                      },
+                      ticks: $.extend(
+                        {
+                          beginAtZero: true,
+                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          // @ts-ignore
+                          callback: function (value) {
+                            return value + '%';
+                          }
+                        },
+                        ticksStyle
+                      )
+                    }
+                  ],
+                  xAxes: [
+                    {
+                      display: true,
+                      gridLines: {
+                        display: false
+                      },
+                      ticks: ticksStyle
+                    }
+                  ]
                 }
-              ],
-              xAxes: [
-                {
-                  display: true,
-                  gridLines: {
-                    display: false
-                  },
-                  ticks: ticksStyle
-                }
-              ]
-            }
+              }
+            });
+          });
+        }, 2000);
+      },
+      switchTab(tab) {
+        this.getSchoolYear();
+        alert(tab)
+      },
+      getResults() {
+        // get the sections
+        let formData = new FormData();
+        formData.append('userId', localStorage.getItem('userId'));
+        formData.append('token', localStorage.getItem('validatorToken'));
+        axios.post(
+          process.env.VUE_APP_ROOT_API + 'admin/get-year.php',formData,
+          {
+          headers: {
+          'Content-Type': 'multipart/form-data', 
           }
+        }
+        ).then((response) => {
+        var result = response.data
+        if (result.status === 'success') {
+          this.sections = result.sections
+        } else {
+          this.sections = [];
+        }
+        this.nowLoading = false;
+        }).catch((response) => {
+          //handle error
+          this.nowLoading = false;
+          console.log(response)
         });
-      });
-    }, 2000);
-  }
+      },
+      getSchoolYear() {
+        // get the sections
+        let formData = new FormData();
+        formData.append('userId', localStorage.getItem('userId'));
+        formData.append('token', localStorage.getItem('validatorToken'));
+        axios.post(
+          process.env.VUE_APP_ROOT_API + 'admin/get-year.php',formData,
+          {
+          headers: {
+          'Content-Type': 'multipart/form-data', 
+          }
+        }
+        ).then((response) => {
+        var result = response.data
+        if (result.status === 'success') {
+          this.sections = result.sections
+        } else {
+          this.sections = [];
+        }
+        this.nowLoading = false;
+        }).catch((response) => {
+          //handle error
+          this.nowLoading = false;
+          console.log(response)
+        });
+      },
+
     }
   }
 </script>
