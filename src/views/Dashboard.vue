@@ -42,7 +42,7 @@
                           <!-- <h3 class="card-title">Students' Profile</h3> -->
                           <h3 class="card-title"> 
                             List of incoming second year College Student’s Progression
-                            <button type="button" class="btn btn-info">
+                            <button :disabled="finalResults.length === 0"  @click="downloadReport(selectedYear, selectedSection)" type="button" class="btn btn-info">
                               <i class="fas fa-download"></i>
                             </button>
                           </h3>
@@ -58,8 +58,8 @@
                             </div>
                             <div class="form-group mx-sm-3 mb-2">
                               <select :disabled="finalResults.length === 0" v-model="selectedSection"  class="form-control">
-                                  <option value="">choose section</option>
-                                  <option v-for="(section, index) in sections" :key="index" v-bind:value="section.id"> {{section.name}}</option>
+                                  <option value="">All sections</option>
+                                  <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
                                 </select>
                             </div>
                           </div>
@@ -73,13 +73,13 @@
                         <h7>(Please choose school year and section)</h7>
                       </div>
                       <div v-if="finalResults.length > 0" class="text-center">
-                        <h4 >College of Computer Studies</h4>
+                        <h4>College of Computer Studies</h4>
                         <h5 class="card-text">Bachelor of Science in Information Technology (BSIT-1D SY 2022-2023)</h5>
                       </div>
-                        <table v-if="finalResults.length > 0" class="table table-hover  text-nowrap table-bordered text-center">
+                        <table v-if="finalResults.length > 0" class="table table-hover table-head-fixed  text-nowrap table-bordered text-center">
                           <thead>
                             <tr>
-                              <th>STUDENT ID</th>
+                              <th class="sticky-header">STUDENT ID</th>
                               <th>SECTION</th>
                               <th>AGE</th>
                               <th>GENDER</th>
@@ -99,7 +99,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="(result, index) in finalResults" :key="index">
+                            <tr v-for="(result, index) in filteredResults" :key="index">
                               <td>{{result[0]}}</td>
                               <td>{{result[1]}}</td>
                               <td>{{result[2]}}</td>
@@ -337,7 +337,6 @@
       }
     },
     mounted() {
-      alert(this.finalResults.length)
       this.getSchoolYear();
       this.getSections();
       //-------------
@@ -547,6 +546,47 @@
           this.nowLoading = false;
           console.log(response)
         });
+      },
+      downloadReport(selectedYear, selectedSection) {
+        // get the sections
+        this.nowLoading = true;
+        let formData = new FormData();
+        formData.append('userId', localStorage.getItem('userId'));
+        formData.append('token', localStorage.getItem('validatorToken'));
+        formData.append('selectedYear', selectedYear);
+        formData.append('selectedSection', selectedSection);
+        axios.post(
+          process.env.VUE_APP_ROOT_API + 'admin/download-report.php',formData,
+          {
+          headers: {
+          'Content-Type': 'multipart/form-data', 
+          }
+        }
+        ).then((response) => {
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'report.csv');
+          document.body.appendChild(link);
+          link.click();
+          this.nowLoading = false;
+        }).catch((response) => {
+          //handle error
+          this.nowLoading = false;
+          console.log(response)
+        });
+      },
+    },
+    computed: {
+      filteredResults: function () {
+        let filterSection = this.selectedSection
+        return this.finalResults.filter(function(item) {
+          let filtered = true
+          if(filterSection && filterSection.length > 0){
+            filtered = item[1] == filterSection
+          }
+          return filtered
+        })
       }
     }
   }
@@ -560,19 +600,26 @@
   table td:first-child {
     position: sticky;
     left: 0;
+    background-color: #1f67c5;
+    color: #ffffff;
+  }
+  .sticky-header {
+    z-index: 9 !important;
+    position: sticky !important;
+    left: 0;
     background-color: #ffffff;
     color: #373737;
   }
+  /* table td:last-child {
+    position: sticky;
+    right: 0;
+    background-color: #ffffff;
+    color: #373737;
+  } */
   table th:first-child {
     position: sticky;
     left: 0 !important;
     background-color: #ffffff !important;
     color: #373737 !important;
   }
-  .sticky-title {
-    position: sticky;
-    left: 0 !important;
-    
-  }
- 
 </style>

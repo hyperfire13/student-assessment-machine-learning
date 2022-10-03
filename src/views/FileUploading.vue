@@ -31,6 +31,7 @@
                       </div>
                     </div>
                     <span v-if="uploadedSuccess === true" class="text-success">Successfully uploaded!</span>
+                    <span v-if="uploadedSuccess === false" class="text-danger">Error in uploading!</span>
                   </div>
                   
                   <!-- /.card-body -->
@@ -63,7 +64,7 @@
         sectionInvalid: false,
         sections: [],
         file: '',
-        uploadedSuccess: false,
+        uploadedSuccess: '',
       }
     },
     mounted() {
@@ -134,7 +135,7 @@
               this.getSchoolYear();
             }
             else {
-              alert('error')
+              this.uploadedSuccess = false;
             }
           this.nowLoading = false;
             
