@@ -91,7 +91,7 @@ export default {
               localStorage.setItem('validatorToken', result.token)
               localStorage.setItem('userId', result.userId)
               localStorage.setItem('level', result.level)
-              this.$router.push({ name: 'Home', params: {
+              this.$router.push({ name: 'Dashboard', params: {
                 firstname: result.firstName,
                 lastname: result.lastName,
                 level: result.level,

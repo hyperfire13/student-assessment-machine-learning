@@ -5,7 +5,7 @@
         <div class="card card-primary col-md-8">
               <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                  Sections
+                  Factors Management {{showpanel}}
                 </h3>
               </div>
               <!-- /.card-header -->
@@ -14,22 +14,22 @@
                   <li>
                     <!-- todo text -->
                     <span v-show="index !== selectedIndex" class="text"><b>{{factor.name}}</b></span>
-                    <input :class="{ 'is-invalid': newFactorInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="">
+                    <input :class="{ 'is-invalid': newFactorInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="Enter factor name">
                     <br>
                     <ul v-for="(inv, child_index) in factor.interventions" v-bind:key="child_index">
                         <li>
                             <div v-show="index !== selectedIndex">{{inv.name}}</div>
-                            <input :class="{ 'is-invalid': newInvInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="inv.name" class="form-control" id="" placeholder="">
+                            <input :class="{ 'is-invalid': newInvInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="inv.name" class="form-control" id="" placeholder="Enter intervention">
                         </li>
                     </ul>
                     <!-- General tools such as edit or delete-->
                     <div v-show="index !== selectedIndex" class="tools">
-                      <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-edit"></i>
-                      <i @click="deleteFactor(factor.id)" class="fas fa-trash"></i>
+                      <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-lg fa-edit"></i>
+                      <i @click="deleteFactor(factor.id)" class="fas fa-lg fa-trash"></i>
                     </div>
                     <div v-if="showEditText === true && index === selectedIndex" class="tools">
-                      <i @click="updateFactor(factor.id, newFactorName, factor.interventions)" class="fas fa-check text-success"></i>
-                      <i @click="cancelEdit()" class="fas fa-window-close"></i>
+                      <i @click="updateFactor(factor.id, newFactorName, factor.interventions)" class="fas fa-lg fa-check text-success"></i>
+                      <i @click="cancelEdit()" class="fas fa-lg fa-window-close"></i>
                     </div>
                   </li>
                 </ul>
@@ -37,7 +37,7 @@
               </div>
               <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
               <!-- /.card-body -->
-              <div class="card-footer clearfix">
+              <div v-show="showpanel" class="card-footer clearfix">
                 <div class="form-group form-inline">
                 <input  :class="{ 'is-invalid': newFactorInvalid }"  type="text" v-model="addFactorName" class="form-control col-md-6" id="" placeholder="">
                 &nbsp;&nbsp;
@@ -84,7 +84,8 @@
         factorInvalid: false,
         newInvInvalid: false,
         interventions: [],
-        oldInterventions: ''
+        oldInterventions: '',
+        showpanel: true,
       }
     },
     mounted() {
@@ -158,6 +159,7 @@
         this.selectedIndex = index;
         this.newFactorName = name;
         this.showEditText = true;
+        this.showpanel = false;
       },
       deleteFactor (id) {
         if (confirm('Are you sure you want to delete this factor?')) {
@@ -222,6 +224,7 @@
       cancelEdit () {
         this.showEditText = false;
         this.selectedIndex = "";
+        this.showpanel = true;
       },
       getUploadedFile(){
         this.file = this.$refs.file.files[0];

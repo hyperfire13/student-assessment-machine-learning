@@ -51,13 +51,13 @@
                               <label class="" for="autoSizingCheck">
                                   SY: &nbsp;
                                 </label>
-                                <select v-on:change="showFinalResults()" v-model="selectedYear"  class="form-control">
+                                <select id="resultsYearSelector" v-on:change="showFinalResults()" v-model="selectedYear"  class="form-control">
                                   <option value="">choose a year</option>
                                   <option v-for="(sy, index) in schoolYear" :key="index" v-bind:value="sy.id"> {{sy.name}}</option>
                                 </select>
                             </div>
                             <div class="form-group mx-sm-3 mb-2">
-                              <select :disabled="finalResults.length === 0" v-model="selectedSection"  class="form-control">
+                              <select id="resultsSectionSelector" :disabled="finalResults.length === 0" v-model="selectedSection"  class="form-control">
                                   <option value="">All sections</option>
                                   <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
                                 </select>
@@ -74,7 +74,7 @@
                       </div>
                       <div v-if="finalResults.length > 0" class="text-center">
                         <h4>College of Computer Studies</h4>
-                        <h5 class="card-text">Bachelor of Science in Information Technology (BSIT-1D SY 2022-2023)</h5>
+                        <h5 id="csvTitle" class="card-text">Bachelor of Science in Information Technology ({{sectionName}} SY {{yearName}})</h5>
                       </div>
                         <table v-if="finalResults.length > 0" class="table table-hover table-head-fixed  text-nowrap table-bordered text-center">
                           <thead>
@@ -148,7 +148,7 @@
                             <label class="" for="autoSizingCheck">
                               SY: &nbsp;
                             </label>
-                            <select v-on:change="showFactorResults()" v-model="selectedYear"  class="form-control">
+                            <select id="factorYearSelector" v-on:change="showFactorResults()" v-model="selectedYear"  class="form-control">
                               <option value="">choose a year</option>
                               <option v-for="(sy, index) in schoolYear" :key="index" v-bind:value="sy.id"> {{sy.name}}</option>
                             </select>
@@ -164,6 +164,9 @@
                     </div> 
                   </div>
                   <div class="card-body table-responsive p-0">
+                    <div v-if="factors.length > 0" class="text-center">
+                      <h5 class="card-text">Bachelor of Science in Information Technology (SY {{yearName}})</h5>
+                    </div>
                     <div v-if="factors.length === 0" class="text-center">
                       <h5>No records to show</h5>
                       <h7>(Please choose school year and section)</h7>
@@ -207,13 +210,13 @@
                     <label class="" for="autoSizingCheck">
                         SY: &nbsp;
                       </label>
-                      <select v-on:change="showAttritionResults()" v-model="selectedYear"  class="form-control">
+                      <select id="attritionYearSelector" v-on:change="showAttritionResults()" v-model="selectedYear"  class="form-control">
                         <option value="">choose a year</option>
                         <option v-for="(sy, index) in schoolYear" :key="index" v-bind:value="sy.id"> {{sy.name}}</option>
                       </select>
                   </div>
                   <div class="form-group mx-sm-3 mb-2">
-                    <select :disabled="attritionResults.length === 0" v-model="selectedSection"  class="form-control">
+                    <select id="attritionSectionSelector" :disabled="attritionResults.length === 0" v-model="selectedSection"  class="form-control">
                         <option value="">All sections</option>
                         <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
                       </select>
@@ -221,6 +224,9 @@
                 </div>
               </div>
               <div class="card-body">
+                <div v-if="attritionResults.length > 0" class="text-center">
+                      <h5 class="card-text">Bachelor of Science in Information Technology ({{sectionName}} SY {{yearName}})</h5>
+                    </div>
                 <div v-show="attritionResults.length === 0" class="text-center">
                       <h5>No records to show</h5>
                       <h7>(Please choose school year and section)</h7>
@@ -233,9 +239,9 @@
                   </div>
                   <div class="col-md-5">
                     <ul v-for="(result, index) in filteredAttritions" :key="index" class="chart-legend clearfix">
-                      <li><i class="far fa-circle text-warning"></i> Total Number of Students : {{result}}</li>
-                      <li><i class="far fa-circle text-success"></i> Students who will continue : % ({{result}} students)</li>
-                      <li><i class="far fa-circle text-danger"></i> Students who will stop :  % ({{result}} students)</li>
+                      <li><i class="far fa-circle text-warning"></i> Total Number of Students : {{result.totalStudents}}</li>
+                      <li><i class="far fa-circle text-success"></i> Students who will continue : {{((result.continueStudents / result.totalStudents) * 100).toFixed(1)}}% ({{result.continueStudents}} students)</li>
+                      <li><i class="far fa-circle text-danger"></i> Students who will stop :  {{((result.stopStudents / result.totalStudents) * 100).toFixed(1)}}% ({{result.stopStudents}} students)</li>
                     </ul>
                   </div>
                 </div>
@@ -310,6 +316,8 @@
      data() {
       return {
         selectedYear:"",
+        yearName: '',
+        sectionName: '',
         selectedSection:'',
         sections: [],
         schoolYear: [],
@@ -347,7 +355,7 @@
             this.attritionResults = result.results
 
           } else {
-            this.factors = [];
+            this.attritionResults = [];
           }
           this.nowLoading = false;
         }).catch((response) => {
@@ -359,10 +367,18 @@
       switchTab(tab) {
         this.selectedYear = "";
         this.selectedSection = "";
+        this.yearName = '';
+        this.sectionName = '';
         this.getSchoolYear();
-        if (tab === 3 && this.attritionResults.length > 0) {
+        if (tab === 3) {
+          this.attritionResults = [];
           
-          
+        }
+        if (tab === 2) {
+          this.factors = [];
+        }
+        if (tab === 1) {
+          this.finalResults = [];
         }
         
       },
@@ -500,7 +516,7 @@
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement('a');
           link.href = url;
-          link.setAttribute('download', 'report.csv');
+          link.setAttribute('download', $('#csvTitle').text() + '.csv');
           document.body.appendChild(link);
           link.click();
           this.nowLoading = false;
@@ -514,6 +530,10 @@
     computed: {
       filteredResults: function () {
         let filterSection = this.selectedSection
+        setTimeout(() => {
+          this.sectionName = $('#resultsSectionSelector option:selected').text();;
+          this.yearName = $('#resultsYearSelector option:selected').text();
+        }, 1000);
         return this.finalResults.filter(function(item) {
           let filtered = true
           if(filterSection && filterSection.length > 0){
@@ -524,6 +544,7 @@
       },
       filteredFactors: function () {
         let filterSection = this.selectedSection
+        this.yearName = $('#factorYearSelector option:selected').text()
         return this.factors.filter(function(item) {
           let filtered = true
           if(filterSection && filterSection.length > 0){
@@ -537,7 +558,8 @@
         var totalStudents;
         var stopStudents;
         var continueStudents;
-        
+        this.sectionName = $('#attritionSectionSelector option:selected').text();
+        this.yearName = $('#attritionYearSelector option:selected').text();
           totalStudents = this.attritionResults.filter(function(item) {
             let filtered = true
             if (filterSection && filterSection.length > 0){
@@ -574,7 +596,6 @@
               return filtered
             })
           }
-        alert(totalStudents.length + ' ' + continueStudents.length + ' ' + stopStudents.length)
         var attritionSummary = [{
           totalStudents: totalStudents.length,
           continueStudents: continueStudents.length,

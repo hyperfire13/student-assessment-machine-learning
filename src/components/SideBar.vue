@@ -12,10 +12,9 @@
 
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div v-if="nowLoading" class="overlay"><i class="fas text-white fa-2x fa-sync-alt fa-spin"></i></div>
+            <div v-if="nowLoading" class="overlay"><i class="fas text-white fa-2x fa-sync-alt fa-spin"></i></div>
             <div class="image">
                 <img
-                    
                     src="../assets/img/default-profile.png"
                     class="img-circle elevation-2"
                     alt="User Image"
@@ -25,6 +24,10 @@
                 <a href="#">
                     {{userFullName}}
                 </a>
+                
+            </div>
+            <div class="image">
+                <span @click="logout()"><i class="nav-icon text-white fas fa-lg fa-sign-out-alt"></i></span>
             </div>
         </div>
 
@@ -40,7 +43,7 @@
                   <p>Dashboard</p>
                 </router-link>
               </li>
-              <li class="nav-item">
+              <li v-if="level === 0" class="nav-item">
                 <router-link
                     to="/file-uploading"
                     class="nav-link"
@@ -49,7 +52,7 @@
                     <p>File Uploading</p>
                 </router-link>
               </li>
-              <li class="nav-item ">
+              <li v-if="level === 0" class="nav-item ">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
@@ -102,9 +105,11 @@ export default {
     return {
         userFullName: "User User",
         nowLoading: true,
+        level: 0,
     }
   },
   mounted () {
+    this.level = parseInt(localStorage.getItem('level'))
     this.userName = this.$route.params + ' ' + this.$route.params.lastname;
     // get the details of the current user
     let formData = new FormData();
@@ -134,7 +139,15 @@ export default {
   },
   props: {
     // userFullName: String
-  }
+  },
+   methods: {
+    logout() {
+      localStorage.removeItem('validatorToken')
+      localStorage.removeItem('userId')
+      localStorage.removeItem('level')
+      this.$router.push({ name: 'Login'})
+    },
+   }
 }
 </script>
 

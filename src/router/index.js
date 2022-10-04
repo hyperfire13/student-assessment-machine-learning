@@ -31,7 +31,7 @@ const routes = [
       },
       {
         path: '/file-uploading',
-        name: '',
+        name: 'Fileuploading',
         component: FileUploading
       },
       {
@@ -41,7 +41,7 @@ const routes = [
       },
       {
         path: '/sections',
-        name: '',
+        name: 'Sections',
         component: Sections
       },
       {
@@ -56,9 +56,26 @@ const routes = [
   },
 ]
 
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+router.beforeEach((to, from) => {
+  var userLevel = parseInt(localStorage.getItem('level'));
+  if ((localStorage.getItem('validatorToken') === undefined || localStorage.getItem('validatorToken') === '') && to.name !== 'Login') {
+    return { name: 'Login' }
+  }
+  if (userLevel !== 0 && to.name === 'Fileuploading') {
+    return { name: from.name }
+  }
+  if (userLevel !== 0 && to.name === 'Sections') {
+    return { name: from.name }
+  }
+  if (userLevel !== 0 && to.name === 'Factors') {
+    return { name: from.name }
+  }
+
 })
 
 export default router
