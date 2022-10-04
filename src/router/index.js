@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Factors from '../views/Factors.vue'
 import Sections from '../views/Sections.vue'
+import Users from '../views/Users.vue'
 import FileUploading from '../views/FileUploading.vue'
 import Login from '../Login.vue'
 import Register from '../Register.vue'
@@ -45,6 +46,11 @@ const routes = [
         component: Sections
       },
       {
+        path: '/users',
+        name: 'Users',
+        component: Users
+      },
+      {
         path: '/about',
         name: 'About',
         // route level code-splitting
@@ -65,9 +71,6 @@ router.beforeEach((to, from) => {
   var userLevel = parseInt(localStorage.getItem('level'));
   if ((localStorage.getItem('validatorToken') === undefined || localStorage.getItem('validatorToken') === '') && to.name !== 'Login') {
     return { name: 'Login' }
-  }
-  if (userLevel !== 0 && to.name === 'Fileuploading') {
-    return { name: from.name }
   }
   if (userLevel !== 0 && to.name === 'Sections') {
     return { name: from.name }

@@ -21,7 +21,7 @@
                     <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
-                          <label>School Year:</label>{{selectedYear}}
+                          <label>School Year:</label>
                           <select v-model="selectedYear" :class="{ 'is-invalid': sectionInvalid }" class="form-control">
                             <option value="">choose a school year</option>
                             <option v-for="(section, index) in sections" :key="index" v-bind:value="section.id"> {{section.name}}</option>

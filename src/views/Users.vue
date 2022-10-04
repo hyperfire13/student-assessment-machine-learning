@@ -5,19 +5,26 @@
         <div class="card card-primary col-md-6">
               <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                  Sections
+                  Users
                 </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <ul class="todo-list ui-sortable" data-widget="todo-list">
+                  <li>
+                    <span v-show="index !== selectedIndex" class="text col-md-6"><b>Fullname</b></span>
+                    <span v-show="index !== selectedIndex" class="text ml-7"><b>Username</b></span>
+                  </li>
+                </ul>
                 <ul v-for="(section, index) in sections" v-bind:key="section.id" class="todo-list ui-sortable" data-widget="todo-list">
+                  
                   <li>
                     <!-- todo text -->
-                    <span v-show="index !== selectedIndex" class="text">{{section.name}}</span>
+                    <span v-show="index !== selectedIndex" class="text col-md-6">{{section.name}}</span>
+                    <span v-show="index !== selectedIndex" class="text ml-7">{{section.username}}</span>
                     <input :class="{ 'is-invalid': sectionInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newSectionName" class="form-control" id="" placeholder="">
                     <!-- General tools such as edit or delete-->
                     <div v-show="index !== selectedIndex" class="tools">
-                      <i @click="editSection(index, section.id, section.name)" class="fas fa-lg fa-edit"></i>
                       <i @click="deleteSection(section.id)" class="fas fa-lg fa-trash"></i>
                     </div>
                     <div v-if="showEditText === true && index === selectedIndex" class="tools">
@@ -69,7 +76,7 @@
       formData.append('userId', localStorage.getItem('userId'));
       formData.append('token', localStorage.getItem('validatorToken'));
       axios.post(
-        process.env.VUE_APP_ROOT_API + 'admin/get-sections.php',formData,
+        process.env.VUE_APP_ROOT_API + 'admin/get-users.php',formData,
         {
         headers: {
         'Content-Type': 'multipart/form-data', 
@@ -132,7 +139,7 @@
           formData.append('token', localStorage.getItem('validatorToken'));
           formData.append('sectionId', id);
           axios.post(
-            process.env.VUE_APP_ROOT_API + 'admin/delete-section.php',formData,
+            process.env.VUE_APP_ROOT_API + 'admin/delete-user.php',formData,
             {
             headers: {
             'Content-Type': 'multipart/form-data', 

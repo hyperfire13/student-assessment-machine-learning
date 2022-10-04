@@ -43,7 +43,7 @@
                   <p>Dashboard</p>
                 </router-link>
               </li>
-              <li v-if="level === 0" class="nav-item">
+              <li  class="nav-item">
                 <router-link
                     to="/file-uploading"
                     class="nav-link"
@@ -53,7 +53,7 @@
                 </router-link>
               </li>
               <li v-if="level === 0" class="nav-item ">
-                <a href="#" class="nav-link">
+                <a href="javascript:void(0)" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Settings
@@ -77,6 +77,15 @@
                       active-class="active">
                       <i class="nav-icon fas fa-pen"></i>
                       <p>Sections</p>
+                    </router-link>
+                  </li>
+                  <li class="nav-item">
+                    <router-link
+                      to="/users"
+                      class="nav-link"
+                      active-class="active">
+                      <i class="nav-icon fas fa-pen"></i>
+                      <p>Users</p>
                     </router-link>
                   </li>
                 </ul>

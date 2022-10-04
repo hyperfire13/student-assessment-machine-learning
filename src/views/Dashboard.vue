@@ -201,7 +201,7 @@
               <div class="card-header">
                 <h3 class="card-title">
                   Possible Attrition Rate
-                  <button type="button" class="btn btn-info btn-sm">
+                  <button :disabled="attritionResults.length === 0" @click="downloadAttrition()" type="button" class="btn btn-info btn-sm">
                     <i class="fas fa-download"></i>
                   </button>
                 </h3>
@@ -223,7 +223,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card-body">
+              <div id="capture" class="card-body">
                 <div v-if="attritionResults.length > 0" class="text-center">
                       <h5 class="card-text">Bachelor of Science in Information Technology ({{sectionName}} SY {{yearName}})</h5>
                     </div>
@@ -310,6 +310,7 @@
   import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
   import 'admin-lte/dist/js/adminlte.js';
   import 'admin-lte/plugins/chart.js/Chart.min.js';
+  import html2canvas from 'html2canvas/dist/html2canvas.min.js'
   import axios from 'axios';
   export default {
     name: 'Dashboard',
@@ -526,6 +527,25 @@
           console.log(response)
         });
       },
+      downloadAttrition() {
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+          // document.body.appendChild(canvas)
+          var uri = canvas.toDataURL();
+          var link = document.createElement('a');
+          if (typeof link.download === 'string') {
+              link.href = uri;
+              link.download = 'Bachelor of Science in Information Technology '+ this.sectionName + ' SY ' + this.yearName + '.png';
+              //Firefox requires the link to be in the body
+              document.body.appendChild(link);
+              //simulate click
+              link.click();
+              //remove the link when done
+              document.body.removeChild(link);
+          } else {
+              window.open(uri);
+          }
+        });
+      }
     },
     computed: {
       filteredResults: function () {
