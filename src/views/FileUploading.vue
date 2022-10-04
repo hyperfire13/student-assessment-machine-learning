@@ -31,7 +31,7 @@
                       </div>
                     </div>
                     <span v-if="uploadedSuccess === true" class="text-success">Successfully uploaded!</span>
-                    <span v-if="uploadedSuccess === false" class="text-danger">Error in uploading!</span>
+                    <span v-if="uploadedSuccess === false" class="text-danger">{{errorMessage}}</span>
                   </div>
                   
                   <!-- /.card-body -->
@@ -65,6 +65,7 @@
         sections: [],
         file: '',
         uploadedSuccess: '',
+        errorMessage: '',
       }
     },
     mounted() {
@@ -136,6 +137,7 @@
             }
             else {
               this.uploadedSuccess = false;
+              this.errorMessage = "Error in uploading! Please re-check the data in your csv file"
             }
           this.nowLoading = false;
             

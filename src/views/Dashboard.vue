@@ -115,7 +115,7 @@
                               <td>{{result[12]}}</td>
                               <td>{{result[13]}}</td>
                               <td>{{result[14]}}</td>
-                              <td>{{result[5]}}</td>
+                              <td>{{result[15]}}</td>
                               <td :class="{ 'bg-success': result[16] === 'Continue', 'bg-danger': result[16] === 'Stop'}" >{{result[16]}}</td>
                             </tr>
                           </tbody>
@@ -133,44 +133,42 @@
           <div class="tab-pane fade " id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
               <!-- factors -->
             <div class="row">
+              
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Factors Affecting Attrition Rate and Interventions (Top 3)</h3>
-                    <div class="card-tools">
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-inline" >
-                                <label class="" for="autoSizingCheck">
-                                  SY: &nbsp;
-                                </label>
-                                <select class="form-control">
-                                    <option>2022-2023</option>
-                                    <option>option 2</option>
-                                    <option>option 3</option>
-                                    <option>option 4</option>
-                                    <option>option 5</option>
-                                  </select>
-                                
-                              </div>
-                            </div>
-                            <div class="col-md-6">
-                              <div class="form-inline" >
-                                <select class="form-control" style="width: 190px;">
-                                  <option>BSIT-1D</option>
-                                  <option>BSIT-1A</option>
-                                  <option>option 2</option>
-                                  <option>option 3</option>
-                                  <option>option 4</option>
-                                  <option>option 5</option>
-                                </select>
-                              </div>
-                            </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <!-- <h3 class="card-title">Students' Profile</h3> -->
+                        <h3 class="card-title mt-2"> 
+                          Factors Affecting Attrition Rate and Interventions (Top 3)
+                        </h3>
+                        <div class="form-inline float-right">
+                          <div class="form-group mb-2">
+                            <label class="" for="autoSizingCheck">
+                              SY: &nbsp;
+                            </label>
+                            <select v-on:change="showFactorResults()" v-model="selectedYear"  class="form-control">
+                              <option value="">choose a year</option>
+                              <option v-for="(sy, index) in schoolYear" :key="index" v-bind:value="sy.id"> {{sy.name}}</option>
+                            </select>
                           </div>
+                          <!-- <div class="form-group mx-sm-3 mb-2">
+                            <select :disabled="factors.length === 0" v-model="selectedSection"  class="form-control">
+                                <option value="">All sections</option>
+                                <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
+                              </select>
+                          </div> -->
                         </div>
+                      </div>
+                    </div> 
                   </div>
                   <div class="card-body table-responsive p-0">
-                    <table id="interventionTable"  class="table table-bordered table-hover text-nowrap">
+                    <div v-if="factors.length === 0" class="text-center">
+                      <h5>No records to show</h5>
+                      <h7>(Please choose school year and section)</h7>
+                    </div>
+                    <table v-if="factors.length > 0" id="interventionTable"  class="table table-bordered table-hover text-nowrap">
                       <thead>
                         <tr>
                           <th>Factor</th>
@@ -178,25 +176,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>Intermediate Programming (Java)</td>
-                          <td>Student Teacher Coaching</td>
-                        </tr>
-                        <tr>
-                          <td>Purposive Communication</td>
-                          <td>Student Teacher Coaching</td>
-                        </tr>
-                        <tr>
-                          <td>Fundamentals of Programming (C++)</td>
-                          <td>Student Teacher Coaching</td>
-                        </tr>
-                        <tr>
-                          <td>175</td>
-                          <td>Mike Doe</td>
+                        <tr v-for="(result, index) in filteredFactors" :key="index">
+                          <td>{{result.name}}</td>
+                          <td>
+                            <ul v-for="(intervention, index) in result.interventions" :key="index">
+                              <li>{{intervention.name}}</li>
+                            </ul>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+                  <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
                 </div>
               </div>
             </div>
@@ -211,50 +202,40 @@
                     <i class="fas fa-download"></i>
                   </button>
                 </h3>
-                <div class="card-tools">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-inline" >
-                        <label class="" for="autoSizingCheck">
-                          SY: &nbsp;
-                        </label>
-                        <select class="form-control">
-                            <option>2022-2023</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
-                            <option>option 5</option>
-                          </select>
-                        
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-inline" >
-                        <select class="form-control" style="width: 190px;">
-                          <option>BSIT-1D</option>
-                          <option>BSIT-1A</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                          <option>option 5</option>
-                        </select>
-                      </div>
-                    </div>
+               <div class="form-inline float-right">
+                  <div class="form-group mb-2">
+                    <label class="" for="autoSizingCheck">
+                        SY: &nbsp;
+                      </label>
+                      <select v-on:change="showAttritionResults()" v-model="selectedYear"  class="form-control">
+                        <option value="">choose a year</option>
+                        <option v-for="(sy, index) in schoolYear" :key="index" v-bind:value="sy.id"> {{sy.name}}</option>
+                      </select>
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <select :disabled="attritionResults.length === 0" v-model="selectedSection"  class="form-control">
+                        <option value="">All sections</option>
+                        <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
+                      </select>
                   </div>
                 </div>
               </div>
               <div class="card-body">
-                <div class="row">
+                <div v-show="attritionResults.length === 0" class="text-center">
+                      <h5>No records to show</h5>
+                      <h7>(Please choose school year and section)</h7>
+                    </div>
+                <div v-show="attritionResults.length > 0" class="row">
                   <div class="col-md-4">
-                    <div class="chart-responsive">
+                    <div id="chart-container" class="chart-responsive">
                       <canvas id="pieChart" height="150"></canvas>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <ul class="chart-legend clearfix">
-                      <li><i class="far fa-circle text-warning"></i> Total Number of Students :160</li>
-                      <li><i class="far fa-circle text-success"></i> Students who will continue : 92.5% (148 students)</li>
-                      <li><i class="far fa-circle text-danger"></i> Students who will stop :  7.5% (12 students)</li>
+                  <div class="col-md-5">
+                    <ul v-for="(result, index) in filteredAttritions" :key="index" class="chart-legend clearfix">
+                      <li><i class="far fa-circle text-warning"></i> Total Number of Students : {{result}}</li>
+                      <li><i class="far fa-circle text-success"></i> Students who will continue : % ({{result}} students)</li>
+                      <li><i class="far fa-circle text-danger"></i> Students who will stop :  % ({{result}} students)</li>
                     </ul>
                   </div>
                 </div>
@@ -334,134 +315,56 @@
         schoolYear: [],
         finalResults: [],
         nowLoading: false,
+        factors: [],
+        attritionResults: [],
       }
     },
     mounted() {
       this.getSchoolYear();
       this.getSections();
-      //-------------
-      // - PIE CHART -
-      //-------------
-      // Get context with jQuery - using jQuery's .get() method.
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      const canvas =document.getElementById('pieChart');
-      const pieChartCanvas = canvas.getContext('2d');
-      const pieData = {
-        labels: ['Will Continue', 'Will Stop'],
-        datasets: [
-          {
-            data: [148, 12],
-            backgroundColor: ['#00a65a', '#f56954']
-          }
-        ]
-      };
-      const pieOptions = {
-        legend: {
-          display: false
-        }
-      };
-      // Create pie or douhnut chart
-      // You can switch between pie and douhnut using the method below.
-      // eslint-disable-next-line no-unused-vars
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const pieChart = new Chart(pieChartCanvas, {
-        type: 'doughnut',
-        data: pieData,
-        options: pieOptions
-      });
 
-      //-----------------
-      // - END PIE CHART -
-      //-----------------y
     },
     methods: {
-      showCompetency() {
+      showAttritionResults() {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        $('#modal-default').modal('show')
-        setTimeout(function () {
-          $(function () {
-            'use strict';
-            const ticksStyle = {
-              fontColor: '#495057',
-              fontStyle: 'bold'
-            };
+        this.nowLoading = true;
+        // get the sections
+        let formData = new FormData();
+        formData.append('userId', localStorage.getItem('userId'));
+        formData.append('token', localStorage.getItem('validatorToken'));
+        formData.append('selectedYear', this.selectedYear);
+        axios.post(
+          process.env.VUE_APP_ROOT_API + 'admin/get-attrition-results.php',formData,
+          {
+          headers: {
+          'Content-Type': 'multipart/form-data', 
+          }
+        }
+        ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            this.attritionResults = result.results
 
-            const mode = 'index';
-            const intersect = true;
-
-            const $competencyChart = $('#competency-chart');
-            // eslint-disable-next-line no-unused-vars
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            const competencyChart = new Chart($competencyChart, {
-              type: 'bar',
-              data: {
-                labels: ['Module 1 (Simple Tenses) 47%', 'Module 2 (Punctation) 88%', 'Module 3 (Vocabulary) 67%'],
-                datasets: [
-                  {
-                    label: 'Average Percentage',
-                    backgroundColor: ['#DC3545', '#28A745', '#28A745'],
-                    borderColor: '#007bff',
-                    data: [47, 88, 67]
-                  }
-                ]
-              },
-              options: {
-                maintainAspectRatio: false,
-                tooltips: {
-                  mode: mode,
-                  intersect: intersect
-                },
-                hover: {
-                  mode: mode,
-                  intersect: intersect
-                },
-                legend: {
-                  display: false
-                },
-                scales: {
-                  yAxes: [
-                    {
-                      // display: false,
-                      gridLines: {
-                        display: true,
-                        lineWidth: '4px',
-                        color: 'rgba(0, 0, 0, .2)',
-                        zeroLineColor: 'transparent'
-                      },
-                      ticks: $.extend(
-                        {
-                          beginAtZero: true,
-                          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                          // @ts-ignore
-                          callback: function (value) {
-                            return value + '%';
-                          }
-                        },
-                        ticksStyle
-                      )
-                    }
-                  ],
-                  xAxes: [
-                    {
-                      display: true,
-                      gridLines: {
-                        display: false
-                      },
-                      ticks: ticksStyle
-                    }
-                  ]
-                }
-              }
-            });
-          });
-        }, 2000);
+          } else {
+            this.factors = [];
+          }
+          this.nowLoading = false;
+        }).catch((response) => {
+          //handle error
+          this.nowLoading = false;
+          console.log(response)
+        });
       },
       switchTab(tab) {
+        this.selectedYear = "";
+        this.selectedSection = "";
         this.getSchoolYear();
-        alert(tab)
+        if (tab === 3 && this.attritionResults.length > 0) {
+          
+          
+        }
+        
       },
       getResults() {
         
@@ -547,6 +450,37 @@
           console.log(response)
         });
       },
+      showFactorResults() {
+        this.nowLoading = true;
+        // get the sections
+        let formData = new FormData();
+        formData.append('userId', localStorage.getItem('userId'));
+        formData.append('token', localStorage.getItem('validatorToken'));
+        formData.append('selectedYear', this.selectedYear);
+        axios.post(
+          process.env.VUE_APP_ROOT_API + 'admin/get-factor-results.php',formData,
+          {
+          headers: {
+          'Content-Type': 'multipart/form-data', 
+          }
+        }
+        ).then((response) => {
+          var result = response.data
+          if (result.status === 'success') {
+            this.factors = result.results
+            for (let index = 0; index < this.factors.length; index++) {
+              this.factors[index].interventions = JSON.parse(this.factors[index].interventions);
+            }
+          } else {
+            this.factors = [];
+          }
+          this.nowLoading = false;
+        }).catch((response) => {
+          //handle error
+          this.nowLoading = false;
+          console.log(response)
+        });
+      },
       downloadReport(selectedYear, selectedSection) {
         // get the sections
         this.nowLoading = true;
@@ -587,8 +521,107 @@
           }
           return filtered
         })
-      }
-    }
+      },
+      filteredFactors: function () {
+        let filterSection = this.selectedSection
+        return this.factors.filter(function(item) {
+          let filtered = true
+          if(filterSection && filterSection.length > 0){
+            filtered = item[1] == filterSection
+          }
+          return filtered
+        })
+      },
+      filteredAttritions: function () {
+        let filterSection = this.selectedSection;
+        var totalStudents;
+        var stopStudents;
+        var continueStudents;
+        
+          totalStudents = this.attritionResults.filter(function(item) {
+            let filtered = true
+            if (filterSection && filterSection.length > 0){
+              filtered = item[1] == filterSection
+            }
+            return filtered
+          })
+          if (filterSection !== '' ) {
+            stopStudents = totalStudents.filter(function(item) {
+              let filtered = true
+              if (filterSection && filterSection.length > 0){
+                filtered = item[16] == 'Stop'
+              }
+              return filtered
+            })
+            continueStudents = totalStudents.filter(function(item) {
+              let filtered = true
+              if (filterSection && filterSection.length > 0){
+                filtered = item[16] == 'Continue'
+              }
+              return filtered
+            })
+          } else {
+            stopStudents = this.attritionResults.filter(function(item) {
+              let filtered = true
+              filtered = item[16] == 'Stop'
+             
+              return filtered
+            })
+            continueStudents = this.attritionResults.filter(function(item) {
+              let filtered = true
+              filtered = item[16] == 'Continue'
+              
+              return filtered
+            })
+          }
+        alert(totalStudents.length + ' ' + continueStudents.length + ' ' + stopStudents.length)
+        var attritionSummary = [{
+          totalStudents: totalStudents.length,
+          continueStudents: continueStudents.length,
+          stopStudents: stopStudents.length,
+        }]
+        setTimeout(function () {
+            //-------------
+            // - PIE CHART -
+            //-------------
+            // Get context with jQuery - using jQuery's .get() method.
+            // eslint-disable-next-line @typescript-eslint/no-empty-function
+            $('#pieChart').remove(); 
+            $('#chart-container').append('<canvas id="pieChart" height="150"></canvas>');
+            const canvas = document.getElementById('pieChart');
+            const pieChartCanvas = canvas.getContext('2d');
+            const pieData = {
+              labels: ['Will Continue', 'Will Stop'],
+              datasets: [
+                {
+                  data: [continueStudents.length, stopStudents.length],
+                  backgroundColor: ['#00a65a', '#f56954']
+                }
+              ]
+            };
+            const pieOptions = {
+              legend: {
+                display: false
+              }
+            };
+            // Create pie or douhnut chart
+            // You can switch between pie and douhnut using the method below.
+            // eslint-disable-next-line no-unused-vars
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            const pieChart = new Chart(pieChartCanvas, {
+              type: 'doughnut',
+              data: pieData,
+              options: pieOptions
+            });
+
+            //-----------------
+            // - END PIE CHART -
+            //-----------------y
+          },1000)
+        return attritionSummary;
+      },
+    },
   }
 </script>
 
