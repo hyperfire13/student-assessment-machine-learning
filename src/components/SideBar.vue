@@ -57,7 +57,7 @@
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Settings
-                    <i class="right fas fa-angle-left"></i>
+                    <i class="right fas fa-angle-right"></i>
                   </p>
                 </a>
                 <ul class="nav nav-treeview" style="display: none;">

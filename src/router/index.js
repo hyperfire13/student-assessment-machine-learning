@@ -7,6 +7,7 @@ import Users from '../views/Users.vue'
 import FileUploading from '../views/FileUploading.vue'
 import Login from '../Login.vue'
 import Register from '../Register.vue'
+import Forgot from '../Forgot.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/forgot',
+    name: 'Forgot',
+    component: Forgot
   },
   {
     path: '/home',

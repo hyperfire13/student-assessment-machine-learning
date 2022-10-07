@@ -16,6 +16,7 @@
                       <div class="form-group">
                         <input :class="{ 'is-invalid': fileInvalid }" ref="file" v-on:change="getUploadedFile()" type="file" class="form-control-file" id="exampleFormControlFile1">
                         <span class="error invalid-feedback">Please select a file with .CSV format</span>
+                        <i class="text-primary">File with .CSV format only</i>
                       </div>
                     </div>
                     <div class="row">
@@ -30,8 +31,8 @@
                         </div>
                       </div>
                     </div>
-                    <span v-if="uploadedSuccess === true" class="text-success">Successfully uploaded!</span>
-                    <span v-if="uploadedSuccess === false" class="text-danger">{{errorMessage}}</span>
+                    <h3 v-if="uploadedSuccess === true" class="text-success">Successfully uploaded!</h3>
+                    <h3 v-if="uploadedSuccess === false" class="text-danger">{{errorMessage}}</h3>
                   </div>
                   
                   <!-- /.card-body -->

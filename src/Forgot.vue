@@ -2,7 +2,7 @@
   <body class="register-page" style="min-height: 570.781px;">
     <div class="register-box">
       <div class="register-logo">
-          <h3>User Registration</h3>
+          <h3>Forgot Password</h3>
       </div>
 
       <div class="card">
@@ -14,24 +14,6 @@
 
             <form action="../../index.html" method="post">
                 <div class="input-group mb-3">
-                  <input :class="{ 'is-invalid': fnameInvalid }" v-model="firstname" type="text" class="form-control" placeholder="First name">
-                  <div class="input-group-append">
-                      <div class="input-group-text">
-                      <span class="fas fa-user"></span>
-                      </div>
-                  </div>
-                  <span class="error invalid-feedback">Please enter first name</span>
-                </div>
-                <div class="input-group mb-3">
-                  <input :class="{ 'is-invalid': lnameInvalid }" v-model="lastname" type="text" class="form-control" placeholder="Last name">
-                  <div class="input-group-append">
-                      <div class="input-group-text">
-                      <span class="fas fa-user"></span>
-                      </div>
-                  </div>
-                  <span class="error invalid-feedback">Please enter last name</span>
-                </div>
-                <div class="input-group mb-3">
                   <input :class="{ 'is-invalid': unameInvalid }" v-model="username" type="text" class="form-control" placeholder="username">
                   <div class="input-group-append">
                       <div class="input-group-text">
@@ -41,7 +23,7 @@
                   <span class="error invalid-feedback">Invalid username</span>
                 </div>
                 <div class="input-group mb-3">
-                <input :class="{ 'is-invalid': passwordInvalid }" v-model="password" type="password" class="form-control" placeholder="Password">
+                <input :class="{ 'is-invalid': passwordInvalid }" v-model="password" type="password" class="form-control" placeholder="New password">
                 <div class="input-group-append">
                     <div class="input-group-text">
                     <span class="fas fa-lock"></span>
@@ -58,25 +40,11 @@
                   </div>
                   <span class="error invalid-feedback">Password does not match, please retype</span>
                 </div>
-                <div class="input-group mb-3">
-                   <select :class="{ 'is-invalid': levelInvalid }" v-model="selectedLevel" class="form-control" >
-                    <option selected="selected" >select user level</option>
-                    <option  value="1">teacher</option>
-                  </select>
-                  <div class="input-group-append">
-                      <div class="input-group-text">
-                      <span class="fas fa-user"></span>
-                      </div>
-                  </div>
-                  <span class="error invalid-feedback">Please select user level</span>
-                </div>
-               
-                
             </form>
 
             <div class="social-auth-links text-center">
                 <button v-on:click="register()" class="btn btn-block btn-primary">
-                  Register
+                  Submit
                 </button>
             </div>
 
@@ -145,28 +113,13 @@ export default {
           this.repasswordInvalid = 1;
           this.validEntry = false;
         }
-        if (this.firstname === '') {
-          this.fnameInvalid = 1;
-          this.validEntry = false;
-        }
-        if (this.lastname === '') {
-          this.lnameInvalid = 1;
-          this.validEntry = false;
-        }
-        if (this.selectedLevel === 'select user level') {
-          this.levelInvalid = 1;
-          this.validEntry = false;
-        }
-        if (this.validEntry === true){
+        if (this.validEntry === true){ alert('haha')
           this.nowLoading = true;
           let formData = new FormData();
           formData.append('username', this.username);
           formData.append('password', this.password);
-          formData.append('firstname', this.firstname);
-          formData.append('lastname', this.lastname);
-          formData.append('level', this.selectedLevel);
           axios.post(
-            process.env.VUE_APP_ROOT_API + 'register.php',formData,
+            process.env.VUE_APP_ROOT_API + 'update-password.php',formData,
             {
               headers: {
                 'Content-Type': 'multipart/form-data', 
@@ -176,9 +129,8 @@ export default {
             this.nowLoading = true;
             this.errorMessages = [];
             var result = response.data
-            alert(result.status)
             if (result.status === 'success') {
-              this.successMessage = "successfully registered!"
+              this.successMessage = "successfully created new password!"
               this.username = "";
               this.firstname = "";
               this.lastname = "";
@@ -191,6 +143,9 @@ export default {
 
             } else if (result.status === 'duplicate') {
               this.errorMessages.push('username already taken');
+              this.unameInvalid = 1;
+            } else if (result.status === 'invalid_username') {
+              this.errorMessages.push('username not existing');
               this.unameInvalid = 1;
             } else {
               this.errorMessages.push('registration failed');

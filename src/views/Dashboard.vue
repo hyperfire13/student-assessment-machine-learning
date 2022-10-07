@@ -20,7 +20,7 @@
             <a v-on:click="switchTab(1)" class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Results Table</a>
           </li>
           <li class="nav-item">
-            <a v-on:click="switchTab(2)" class="nav-link " id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Top 3 Factors</a>
+            <a v-on:click="switchTab(2)" class="nav-link " id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Contributing Factors</a>
           </li>
           <li v-on:click="switchTab(3)" class="nav-item">
             <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Attrition Rate</a>
@@ -41,10 +41,8 @@
                         <div class="col-md-12">
                           <!-- <h3 class="card-title">Students' Profile</h3> -->
                           <h3 class="card-title"> 
-                            List of incoming second year College Student’s Progression
-                            <button :disabled="finalResults.length === 0"  @click="downloadReport(selectedYear, selectedSection)" type="button" class="btn btn-info">
-                              <i class="fas fa-download"></i>
-                            </button>
+                            Predicted Students Progression
+                            
                           </h3>
                           <div class="form-inline float-right">
                             <div class="form-group mb-2">
@@ -61,6 +59,11 @@
                                   <option value="">All sections</option>
                                   <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
                                 </select>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                              <button :disabled="finalResults.length === 0"  @click="downloadReport(selectedYear, selectedSection)" type="button" class="btn btn-info">
+                              <i class="fas fa-download"></i>
+                            </button>
                             </div>
                           </div>
                         </div>
@@ -141,7 +144,7 @@
                       <div class="col-md-12">
                         <!-- <h3 class="card-title">Students' Profile</h3> -->
                         <h3 class="card-title mt-2"> 
-                          Factors Affecting Attrition Rate and Interventions (Top 3)
+                          Factors and Intervention Program
                         </h3>
                         <div class="form-inline float-right">
                           <div class="form-group mb-2">
@@ -201,9 +204,6 @@
               <div class="card-header">
                 <h3 class="card-title">
                   Possible Attrition Rate
-                  <button :disabled="attritionResults.length === 0" @click="downloadAttrition()" type="button" class="btn btn-info btn-sm">
-                    <i class="fas fa-download"></i>
-                  </button>
                 </h3>
                <div class="form-inline float-right">
                   <div class="form-group mb-2">
@@ -220,6 +220,11 @@
                         <option value="">All sections</option>
                         <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
                       </select>
+                  </div>
+                  <div class="form-group mx-sm-3 mb-2">
+                    <button :disabled="attritionResults.length === 0" @click="downloadAttrition()" type="button" class="btn btn-info btn-sm">
+                      <i class="fas fa-download"></i>
+                    </button>
                   </div>
                 </div>
               </div>
