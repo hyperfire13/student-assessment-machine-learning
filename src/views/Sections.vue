@@ -61,6 +61,14 @@
         sectionInvalid: false,
         addSectionName: '',
         newSectionInvalid: false,
+        fnameInvalid: 0,
+        lnameInvalid: 0,
+        unameInvalid: 0,
+        levelInvalid: 0,
+        passwordInvalid: 0,
+        repasswordInvalid: 0,
+        successMessage: "",
+        validEntry : true,
       }
     },
     mounted() {

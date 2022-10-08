@@ -5,7 +5,7 @@
         <div class="card card-primary col-md-12">
               <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                  Factors Management
+                  Archived Factors Management
                 </h3>
               </div>
               <!-- /.card-header -->
@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div v-if="filteredResults.length === 0" class="text-center">
-                        <h5>No Factors found</h5>
+                        <h5>No Arhived Factors found</h5>
                     </div>
                     <ul v-for="(factor, index) in filteredResults" v-bind:key="factor.id" class="todo-list ui-sortable" data-widget="todo-list">
                       <li @click="showIntervention(index, factor.interventions)" >
@@ -33,14 +33,9 @@
                               <span :class="{ 'bg-info': factorSelected === index }" v-show="index !== selectedIndex" class="text">{{factor.name}}</span>
                               <!-- General tools such as edit or delete-->
                           <div v-show="index !== selectedIndex" class="tools">
-                            <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-lg fa-edit"></i>
-                            <i @click="deleteFactor(factor.id)" class="fas fa-lg fa-trash"></i>
+                            <i @click="deleteFactor(factor.id)" class="fas fa-lg fa-sync"></i>
                           </div>
-                          <div v-if="showEditText === true && index === selectedIndex" class="tools">
-                            <i @click="addIntervention2(index, factor.interventions)" class=" text-primary fas fa-lg fa-plus"></i>
-                            <i @click="updateFactor(factor.id, newFactorName, factor.interventions)" class="fas fa-lg fa-check text-success"></i>
-                            <i @click="cancelEdit()" class="fas fa-lg fa-window-close"></i>
-                          </div>
+                        
                               <input :class="{ 'is-invalid': newFactorInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="Enter factor name">
                             </h5>
                           <br>
@@ -61,27 +56,6 @@
               </div>
               <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
               <!-- /.card-body -->
-              <div v-show="showpanel" class="card-footer clearfix">
-                <div class="form-group form-inline">
-                <input  :class="{ 'is-invalid': newFactorInvalid }"  type="text" v-model="addFactorName" class="form-control col-md-6" id="" placeholder="">
-                &nbsp;&nbsp;
-                <button @click="addFactor(addFactorName)" type="button" class="btn btn-success float-right"><i class="fas fa-save"></i> Save Factor</button>
-                &nbsp;&nbsp;&nbsp;
-                <button @click="addIntervenstion()" type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Add Intervention</button>
-                </div>
-                <div class="form-group form-inline">
-                    <ul v-for="(inv, index) in interventions" v-bind:key="inv">
-                        <li>
-                            <input  :class="{ 'is-invalid': newInvInvalid }" v-model="inv.name"  type="text" class="form-control col-md-6" id="" placeholder="">
-                            &nbsp;&nbsp;
-                            <button @click="removeIntervention(index)" type="button" class="btn btn-sm btn-danger"><i class="fas fa-minus"></i> </button>
-                        </li>
-                    </ul>
-                
-                &nbsp;&nbsp;
-                
-                </div>
-              </div>
         </div>
       </div>
     </div>
@@ -121,7 +95,7 @@
       formData.append('userId', localStorage.getItem('userId'));
       formData.append('token', localStorage.getItem('validatorToken'));
       axios.post(
-        process.env.VUE_APP_ROOT_API + 'admin/get-factors.php',formData,
+        process.env.VUE_APP_ROOT_API + 'admin/get-archived-factors.php',formData,
         {
         headers: {
         'Content-Type': 'multipart/form-data', 
@@ -189,13 +163,13 @@
         this.showpanel = false;
       },
       deleteFactor (id) {
-        if (confirm('Are you sure you want to delete this factor?')) {
+        if (confirm('Are you sure you want to restore this factor?')) {
           let formData = new FormData();
           formData.append('userId', localStorage.getItem('userId'));
           formData.append('token', localStorage.getItem('validatorToken'));
           formData.append('factorId', id);
           axios.post(
-            process.env.VUE_APP_ROOT_API + 'admin/delete-factor.php',formData,
+            process.env.VUE_APP_ROOT_API + 'admin/restore-factor.php',formData,
             {
             headers: {
             'Content-Type': 'multipart/form-data', 

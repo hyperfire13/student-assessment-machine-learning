@@ -88,6 +88,15 @@
                       <p>Users</p>
                     </router-link>
                   </li>
+                  <li class="nav-item">
+                    <router-link
+                      to="/archived-factors"
+                      class="nav-link"
+                      active-class="active">
+                      <i class="nav-icon fas fa-pen"></i>
+                      <p>Archived Factors</p>
+                    </router-link>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">

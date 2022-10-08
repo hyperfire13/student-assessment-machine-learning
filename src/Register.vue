@@ -41,16 +41,16 @@
                   <span class="error invalid-feedback">Invalid username</span>
                 </div>
                 <div class="input-group mb-3">
-                <input :class="{ 'is-invalid': passwordInvalid }" v-model="password" type="password" class="form-control" placeholder="Password">
+                <input minlength="8" :class="{ 'is-invalid': passwordInvalid }" v-model="password" type="password" class="form-control" placeholder="Password">
                 <div class="input-group-append">
                     <div class="input-group-text">
                     <span class="fas fa-lock"></span>
                     </div>
                 </div>
-                <span class="error invalid-feedback">Please enter password</span>
+                <span class="error invalid-feedback">Please enter password  (minimum of 8 characters)</span>
                 </div>
                 <div class="input-group mb-3">
-                  <input :class="{ 'is-invalid': repasswordInvalid }" v-model="repassword" type="password" class="form-control" placeholder="Retype password">
+                  <input minlength="8" :class="{ 'is-invalid': repasswordInvalid }" v-model="repassword" type="password" class="form-control" placeholder="Retype password">
                   <div class="input-group-append">
                       <div class="input-group-text">
                       <span class="fas fa-lock"></span>
@@ -137,7 +137,7 @@ export default {
           this.unameInvalid = 1;
           this.validEntry = false;
         }
-        if (this.password === '') {
+        if (this.password === '' || this.password.length < 8) {
           this.passwordInvalid = 1;
           this.validEntry = false;
         }
@@ -176,7 +176,6 @@ export default {
             this.nowLoading = true;
             this.errorMessages = [];
             var result = response.data
-            alert(result.status)
             if (result.status === 'success') {
               this.successMessage = "successfully registered!"
               this.username = "";

@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Factors from '../views/Factors.vue'
+import ArchiveFactors from '../views/ArchivedFactors.vue'
 import Sections from '../views/Sections.vue'
 import Users from '../views/Users.vue'
 import FileUploading from '../views/FileUploading.vue'
@@ -47,6 +48,11 @@ const routes = [
         component: Factors
       },
       {
+        path: '/archived-factors',
+        name: 'ArchivedFactors',
+        component: ArchiveFactors
+      },
+      {
         path: '/sections',
         name: 'Sections',
         component: Sections
@@ -82,6 +88,9 @@ router.beforeEach((to, from) => {
     return { name: from.name }
   }
   if (userLevel !== 0 && to.name === 'Factors') {
+    return { name: from.name }
+  }
+  if (userLevel !== 0 && to.name === 'ArchivedFactors') {
     return { name: from.name }
   }
 
