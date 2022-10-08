@@ -41,7 +41,7 @@
                         <div class="col-md-12">
                           <!-- <h3 class="card-title">Students' Profile</h3> -->
                           <h3 class="card-title"> 
-                            Predicted Students Progression
+                            <b>Predicted Students Progression</b>
                             
                           </h3>
                           <div class="form-inline float-right">
@@ -57,6 +57,8 @@
                             <div class="form-group mx-sm-3 mb-2">
                               <select id="resultsSectionSelector" :disabled="finalResults.length === 0" v-model="selectedSection"  class="form-control">
                                   <option value="">All sections</option>
+                                  <option value="Stop">Stop</option>
+                                  <option value="Continue">Continue</option>
                                   <option v-for="(section, index) in sections" :key="index" v-bind:value="section.name"> {{section.name}}</option>
                                 </select>
                             </div>
@@ -144,7 +146,7 @@
                       <div class="col-md-12">
                         <!-- <h3 class="card-title">Students' Profile</h3> -->
                         <h3 class="card-title mt-2"> 
-                          Factors and Intervention Program
+                          <b>Factors and Intervention Program</b>
                         </h3>
                         <div class="form-inline float-right">
                           <div class="form-group mb-2">
@@ -203,7 +205,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  Possible Attrition Rate
+                  <b>Possible Attrition Rate</b>
                 </h3>
                <div class="form-inline float-right">
                   <div class="form-group mb-2">
@@ -559,13 +561,17 @@
           this.sectionName = $('#resultsSectionSelector option:selected').text();;
           this.yearName = $('#resultsYearSelector option:selected').text();
         }, 1000);
-        return this.finalResults.filter(function(item) {
-          let filtered = true
-          if(filterSection && filterSection.length > 0){
-            filtered = item[1] == filterSection
-          }
-          return filtered
-        })
+        if (filterSection !== "") {
+          return this.finalResults
+            .filter(
+              (entry) => this.finalResults.length
+                ? Object.keys(this.finalResults[0])
+                    .some(key => ('' + entry[key]).includes(filterSection))
+                : true
+            );
+        }
+        return this.finalResults
+       
       },
       filteredFactors: function () {
         let filterSection = this.selectedSection
