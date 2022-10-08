@@ -2,37 +2,58 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
-        <div class="card card-primary col-md-8">
+        <div class="card card-primary col-md-12">
               <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                  Factors Management {{showpanel}}
+                  Factors Management
                 </h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <ul v-for="(factor, index) in factors" v-bind:key="factor.id" class="todo-list ui-sortable" data-widget="todo-list">
-                  <li>
-                    <!-- todo text -->
-                    <span v-show="index !== selectedIndex" class="text"><b>{{factor.name}}</b></span>
-                    <input :class="{ 'is-invalid': newFactorInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="Enter factor name">
-                    <br>
-                    <ul v-for="(inv, child_index) in factor.interventions" v-bind:key="child_index">
-                        <li>
-                            <div v-show="index !== selectedIndex">{{inv.name}}</div>
-                            <input :class="{ 'is-invalid': newInvInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="inv.name" class="form-control" id="" placeholder="Enter intervention">
-                        </li>
+                <div class="row">
+                  <div class="col-md-12" style="overflow-y:scroll;;max-height: 630px;">
+                    <div class="form-group mx-sm-3 mb-2">
+                       <div class="input-group input-group-sm" style="width: 350px;">
+                        <input v-model="searchedFactor" type="text" name="table_search" class="form-control float-right" placeholder="Search factor">
+                          <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                              <i class="fas fa-search"></i>
+                            </button>
+                          </div>
+                        </div>
+                    </div>
+                    <ul v-for="(factor, index) in filteredResults" v-bind:key="factor.id" class="todo-list ui-sortable" data-widget="todo-list">
+                      <li @click="showIntervention(index, factor.interventions)" >
+                        <!-- todo text -->
+                        <div class="callout callout-info">
+                            <h5> 
+                              <span :class="{ 'bg-info': factorSelected === index }" v-show="index !== selectedIndex" class="text">{{factor.name}}</span>
+                              <!-- General tools such as edit or delete-->
+                          <div v-show="index !== selectedIndex" class="tools">
+                            <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-lg fa-edit"></i>
+                            <i @click="deleteFactor(factor.id)" class="fas fa-lg fa-trash"></i>
+                          </div>
+                          <div v-if="showEditText === true && index === selectedIndex" class="tools">
+                            <i @click="addIntervention2(index, factor.interventions)" class=" text-primary fas fa-lg fa-plus"></i>
+                            <i @click="updateFactor(factor.id, newFactorName, factor.interventions)" class="fas fa-lg fa-check text-success"></i>
+                            <i @click="cancelEdit()" class="fas fa-lg fa-window-close"></i>
+                          </div>
+                              <input :class="{ 'is-invalid': newFactorInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newFactorName" class="form-control" id="" placeholder="Enter factor name">
+                            </h5>
+                          <br>
+                          <ul v-show="factorSelected === index" v-for="(inv, child_index) in factor.interventions" v-bind:key="child_index">
+                              <li>
+                                  <div v-show="index !== selectedIndex">{{inv.name}}</div>
+                                  <input :class="{ 'is-invalid': newInvInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="inv.name" class="form-control" id="" placeholder="Enter intervention">
+                              </li>
+                          </ul>
+                          
+                        </div>
+                      </li>
                     </ul>
-                    <!-- General tools such as edit or delete-->
-                    <div v-show="index !== selectedIndex" class="tools">
-                      <i @click="editFactor(index, factor.id, factor.name)" class="fas fa-lg fa-edit"></i>
-                      <i @click="deleteFactor(factor.id)" class="fas fa-lg fa-trash"></i>
-                    </div>
-                    <div v-if="showEditText === true && index === selectedIndex" class="tools">
-                      <i @click="updateFactor(factor.id, newFactorName, factor.interventions)" class="fas fa-lg fa-check text-success"></i>
-                      <i @click="cancelEdit()" class="fas fa-lg fa-window-close"></i>
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
+                
                 
               </div>
               <div v-if="nowLoading" class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>
@@ -58,7 +79,7 @@
                 
                 </div>
               </div>
-            </div>
+        </div>
       </div>
     </div>
   </section>
@@ -74,7 +95,7 @@
     name: 'Sections',
     data() {
       return {
-        factors: '',
+        factors: [],
         nowLoading: true,
         showEditText: false,
         newFactorName: '',
@@ -86,6 +107,9 @@
         interventions: [],
         oldInterventions: '',
         showpanel: true,
+        factorSelected: '',
+        selectedIntervention: [],
+        searchedFactor: ''
       }
     },
     mounted() {
@@ -228,7 +252,29 @@
       },
       getUploadedFile(){
         this.file = this.$refs.file.files[0];
+      },
+      showIntervention(index, intervention) {
+        this.selectedIntervention = intervention;
+        this.factorSelected = index;
+      },
+      addIntervention2 (index) {
+        alert(JSON.stringify(this.factors[index]))
+        this.filteredResults[index].interventions.push( { "name": "" })
       }
+    },
+    computed: {
+      filteredResults: function () {
+        let filterSection = this.searchedFactor
+        if (filterSection !== "") {
+          return this.factors.filter(function(item) {
+          let filtered = true
+          filtered = filterSection.toLowerCase().split(' ').every(v => item.name.toLowerCase().includes(v))
+          return filtered
+        })
+        }
+        return this.factors
+        
+      },
     }
   }
 </script>

@@ -98,7 +98,7 @@
                               <th>INTERMEDIATE PROGRAMMING(Java)</th>
                               <th>DISCRETE MATHEMATICS</th>
                               <th>MEMBER OF ANY SCHOOl ORGANIZATION</th>
-                              <th>WILL CONTINUE?</th>
+                              <th>PREDICTION</th>
                             </tr>
                           </thead>
                           <tbody>
