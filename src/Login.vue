@@ -36,9 +36,9 @@
               Login
             </button>
           </div>
-          <p class="mb-0">
+          <!-- <p class="mb-0">
             <a href="#/register" class="text-center">Register a new membership</a>
-          </p>
+          </p> -->
           <p class="mb-0">
             <a href="#/forgot" class="text-center">Forgot Password</a>
           </p>

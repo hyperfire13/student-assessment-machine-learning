@@ -72,7 +72,7 @@
                 <div class="form-group form-inline">
                     <ul v-for="(inv, index) in interventions" v-bind:key="inv">
                         <li>
-                            <input  :class="{ 'is-invalid': newInvInvalid }" v-model="inv.name"  type="text" class="form-control col-md-6" id="" placeholder="">
+                            <input  :class="{ 'is-invalid': newInvInvalid }" v-model="inv.name"  type="text" class="form-control col-md-6" id="" placeholder="add intervention">
                             &nbsp;&nbsp;
                             <button @click="removeIntervention(index)" type="button" class="btn btn-sm btn-danger"><i class="fas fa-minus"></i> </button>
                         </li>
@@ -261,7 +261,6 @@
         this.factorSelected = index;
       },
       addIntervention2 (index) {
-        alert(JSON.stringify(this.factors[index]))
         this.filteredResults[index].interventions.push( { "name": "" })
       }
     },

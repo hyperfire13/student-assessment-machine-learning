@@ -61,7 +61,7 @@
                 <div class="input-group mb-3">
                    <select :class="{ 'is-invalid': levelInvalid }" v-model="selectedLevel" class="form-control" >
                     <option selected="selected" >select user level</option>
-                    <option  value="1">teacher</option>
+                    <option  value="1">Dean</option>
                   </select>
                   <div class="input-group-append">
                       <div class="input-group-text">

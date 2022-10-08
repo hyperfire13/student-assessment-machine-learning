@@ -12,7 +12,7 @@
               <div class="card-body">
                 <div class="form-group  mb-2">
                     <div class="input-group input-group-sm" style="width: 350px;">
-                    <input v-model="searchedFactor" type="text" name="table_search" class="form-control float-right" placeholder="Search factor">
+                    <input v-model="searchedFactor" type="text" name="table_search" class="form-control float-right" placeholder="Search user">
                       <div class="input-group-append">
                         <button type="submit" class="btn btn-default">
                           <i class="fas fa-search"></i>
@@ -33,7 +33,7 @@
                     <!-- todo text -->
                     <span v-show="index !== selectedIndex" class="text col-md-4">{{section.name}}</span>
                     <span v-show="index !== selectedIndex" class="text col-md-4">{{section.username}}</span>
-                    <span v-show="index !== selectedIndex" class="text col-md-3">{{section.level == 0 ?  'admin' : 'teacher'}}</span>
+                    <span v-show="index !== selectedIndex" class="text col-md-3">{{section.level == 0 ?  'admin' : 'dean'}}</span>
                     <input :class="{ 'is-invalid': sectionInvalid }" v-if="showEditText === true && index === selectedIndex" type="text" v-model="newSectionName" class="form-control" id="" placeholder="">
                     <!-- General tools such as edit or delete-->
                     <div v-show="index !== selectedIndex" class="tools">
@@ -106,7 +106,7 @@
                   <div class="input-group mb-3">
                     <select :class="{ 'is-invalid': levelInvalid }" v-model="selectedLevel" class="form-control" >
                       <option selected="selected" >select user level</option>
-                      <option  value="1">teacher</option>
+                      <option  value="1">dean</option>
                       <option  value="0">admin</option>
                     </select>
                     <div class="input-group-append">
